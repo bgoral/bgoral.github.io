@@ -1,4 +1,4 @@
-baseURL = "http://example.org/"
+baseURL = "https://bgoral.github.io/"
 languageCode = "de-DE"
 title = "Distributed Thoughts"
 theme = "cactus"
