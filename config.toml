@@ -31,4 +31,4 @@ weight = 3
 [params]
   colortheme = "white" # dark, light, white, or classic
   rss = true # generate rss feed. default value is false
-  description = "> \"People who deny the existence of dragons are often eaten by dragons. From within.\" Ursula K Le Guin"
+  description = "bgoral$ \"People who deny the existence of dragons are often eaten by dragons. From within.\" Ursula K Le Guin"
