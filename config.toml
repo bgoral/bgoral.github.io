@@ -1,0 +1,33 @@
+baseURL = "http://example.org/"
+languageCode = "de-DE"
+title = "Distributed Thoughts"
+theme = "cactus"
+copyright = "Baris Goral" # 
+
+# Main menu which appears below site header.
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Writings"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 3
+
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+
+[params]
+  colortheme = "white" # dark, light, white, or classic
+  rss = true # generate rss feed. default value is false
+  description = "> \"People who deny the existence of dragons are often eaten by dragons. From within.\" Ursula K Le Guin"
