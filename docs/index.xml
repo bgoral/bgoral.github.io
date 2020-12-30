@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distributed Thoughts</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Distributed Thoughts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Baris Goral</copyright>
+    <lastBuildDate>Mon, 20 Jun 2016 19:21:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>About me</title>
+      <link>http://example.org/about/</link>
+      <pubDate>Mon, 20 Jun 2016 19:21:00 +0000</pubDate>
+      
+      <guid>http://example.org/about/</guid>
+      <description>My name is Baris, I am software engineer &amp;amp; designer from Istanbul. I live in Germany since 2019.
+This is my second blog. First one was accidentily deleted. This second attempt is about tech, software development &amp;amp; architecture, future and life.
+ Linkedin: Baris Göral Github: bgoral  </description>
+    </item>
+    
+  </channel>
+</rss>

@@ -3,6 +3,7 @@ languageCode = "de-DE"
 title = "Distributed Thoughts"
 theme = "cactus"
 copyright = "Baris Goral" # 
+publishDir = "docs"
 
 # Main menu which appears below site header.
 [[menu.main]]
