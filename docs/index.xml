@@ -18,8 +18,8 @@
       <pubDate>Wed, 30 Dec 2020 20:07:19 +0100</pubDate>
       
       <guid>https://bgoral.github.io/posts/2020-12-30-fallacies/</guid>
-      <description>There are 8 deadly sins being ignored when designing and implementing distributed applications today.
- The network is reliable; Latency is zero; Bandwidth is infinite; The network is secure; Topology doesn&amp;rsquo;t change; There is one administrator; Transport cost is zero; The network is homogeneous.  1. Network is reliable Lets be honest, network is never reliable. And in most of the cases is the &amp;ldquo;scapegoat&amp;rdquo;. In your standup meetings or in calls with production teams, its always network.</description>
+      <description>There are 8 deadly sins ignored when designing and implementing distributed applications today.
+ The network is reliable; Latency is zero; Bandwidth is infinite; The network is secure; Topology doesn&amp;rsquo;t change; There is one administrator; Transport cost is zero; The network is homogeneous.  1. Network is reliable Let&amp;rsquo;s be honest, the network is never reliable. And in most of the cases is the &amp;ldquo;scapegoat&amp;rdquo;. In your standup meetings or calls with production teams, its always network.</description>
     </item>
     
     <item>
