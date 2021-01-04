@@ -1,6 +1,6 @@
 ---
 title: About me
-date: 2016-06-20 19:21:00
+date: 2020-30-12 19:23:00
 ---
 
 My name is Baris, I am a software engineer & designer from Istanbul. I live in Germany since 2019. 
