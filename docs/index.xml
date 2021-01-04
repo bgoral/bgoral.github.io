@@ -13,13 +13,13 @@
     
     
     <item>
-      <title>2020 12 30 Arc Patternsns</title>
-      <link>https://bgoral.github.io/posts/2020-12-30-arc-patternsns/</link>
+      <title>8 Deadly Sins of Distributed Systems</title>
+      <link>https://bgoral.github.io/posts/2020-12-30-fallacies/</link>
       <pubDate>Wed, 30 Dec 2020 20:07:19 +0100</pubDate>
       
-      <guid>https://bgoral.github.io/posts/2020-12-30-arc-patternsns/</guid>
-      <description>In this post series, I will (to refresh) review the architectural patterns, advantages, disadvantages and decays.I am reviewing recent books, articals and will combine with my experience and with realworld examples.
- Layered Architecture Service Oriented Architecture Event Driven Architecture Microservices Architecture Microkernel Architecture  </description>
+      <guid>https://bgoral.github.io/posts/2020-12-30-fallacies/</guid>
+      <description>There are 8 deadly sins being ignored when designing and implementing distributed applications today.
+ The network is reliable; Latency is zero; Bandwidth is infinite; The network is secure; Topology doesn&amp;rsquo;t change; There is one administrator; Transport cost is zero; The network is homogeneous.  1. Network is reliable Lets be honest, network is never reliable. And in most of the cases is the &amp;ldquo;scapegoat&amp;rdquo;. In your standup meetings or in calls with production teams, its always network.</description>
     </item>
     
     <item>

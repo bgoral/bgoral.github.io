@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> 8 Deadly Sins of Distributed Systems | Distributed Thoughts</title>
+  <meta name="description" content="&gt;&#34;People who deny the existence of dragons are often eaten by dragons. From within.&#34; Ursula K Le Guin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="8 Deadly Sins of Distributed Systems" />
+<meta property="og:description" content="There are 8 deadly sins being ignored when designing and implementing distributed applications today.
+ The network is reliable; Latency is zero; Bandwidth is infinite; The network is secure; Topology doesn&rsquo;t change; There is one administrator; Transport cost is zero; The network is homogeneous.  1. Network is reliable Lets be honest, network is never reliable. And in most of the cases is the &ldquo;scapegoat&rdquo;. In your standup meetings or in calls with production teams, its always network." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://bgoral.github.io/posts/2020-12-30-fallacies/" />
+<meta property="article:published_time" content="2020-12-30T20:07:19+01:00" />
+<meta property="article:modified_time" content="2020-12-30T20:07:19+01:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="8 Deadly Sins of Distributed Systems"/>
+<meta name="twitter:description" content="There are 8 deadly sins being ignored when designing and implementing distributed applications today.
+ The network is reliable; Latency is zero; Bandwidth is infinite; The network is secure; Topology doesn&rsquo;t change; There is one administrator; Transport cost is zero; The network is homogeneous.  1. Network is reliable Lets be honest, network is never reliable. And in most of the cases is the &ldquo;scapegoat&rdquo;. In your standup meetings or in calls with production teams, its always network."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://bgoral.github.io/css/style-white.css">
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://bgoral.github.io/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://bgoral.github.io/about/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&text=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&title=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&is_video=false&description=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=8%20Deadly%20Sins%20of%20Distributed%20Systems&body=Check out this article: https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&title=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&title=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&title=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&title=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&name=8%20Deadly%20Sins%20of%20Distributed%20Systems&description=There%20are%208%20deadly%20sins%20being%20ignored%20when%20designing%20and%20implementing%20distributed%20applications%20today.%0a%20The%20network%20is%20reliable%3b%20Latency%20is%20zero%3b%20Bandwidth%20is%20infinite%3b%20The%20network%20is%20secure%3b%20Topology%20doesn%26rsquo%3bt%20change%3b%20There%20is%20one%20administrator%3b%20Transport%20cost%20is%20zero%3b%20The%20network%20is%20homogeneous.%20%201.%20Network%20is%20reliable%20Lets%20be%20honest%2c%20network%20is%20never%20reliable.%20And%20in%20most%20of%20the%20cases%20is%20the%20%26ldquo%3bscapegoat%26rdquo%3b.%20In%20your%20standup%20meetings%20or%20in%20calls%20with%20production%20teams%2c%20its%20always%20network.">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&t=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-network-is-reliable">1. Network is reliable</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#2-latency-is-zero">2. Latency is Zero</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#3-bandwidth-is-infinite">3. Bandwidth is infinite</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#4-network-is-secure">4. Network is secure</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#5-topology-doesnt-change">5. Topology doesn&rsquo;t change</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#6-there-is-one-administrator">6. There is one administrator</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#7-transport-cost-is-zero">7. Transport cost is zero</a></li>
+    <li><a href="#8-the-network-is-homogeneous">8. The network is homogeneous</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        8 Deadly Sins of Distributed Systems
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2020-12-30 20:07:19 &#43;0100 CET" itemprop="datePublished">2020-12-30</time>
+          
+        </div>
+        
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <p>There are 8 deadly sins being ignored when designing and implementing distributed applications today.</p>
+<ul>
+<li>The network is reliable;</li>
+<li>Latency is zero;</li>
+<li>Bandwidth is infinite;</li>
+<li>The network is secure;</li>
+<li>Topology doesn&rsquo;t change;</li>
+<li>There is one administrator;</li>
+<li>Transport cost is zero;</li>
+<li>The network is homogeneous.</li>
+</ul>
+<p><img src="../../static/fallacies.jpg" alt="Distribution"></p>
+<h2 id="1-network-is-reliable">1. Network is reliable</h2>
+<p>Lets be honest, network is never reliable. And in most of the cases is the &ldquo;scapegoat&rdquo;. In your standup meetings or in calls with production teams, its always network.</p>
+<h4 id="what-helps">What helps</h4>
+<ul>
+<li>Technical success message recieved (of course should be protocal agnostic if possible)</li>
+<li>Depending on the reqirement and throughput size, a reliable messaging medium can be used (RabbitMQ, Kafka etc.)</li>
+<li>Depending on the messaging medium, retry / de-duplicaion, ordering, sorting needs to be taken cared of</li>
+<li>And messages needs to be verified</li>
+</ul>
+<h2 id="2-latency-is-zero">2. Latency is Zero</h2>
+<p>Latency is the inherent delay present in any communication, regardless of the size of the transmission. The total time for a communication will be</p>
+<blockquote>
+<p><strong>TotalTime = Latency + (Size / Bandwidth)</strong></p>
+</blockquote>
+<p>In other words; time to cross the network in one direction.</p>
+<h4 id="what-helps-1">What helps</h4>
+<ul>
+<li>Optimise geography
+<ul>
+<li>Reduce number of remote calls as much as possible</li>
+</ul>
+</li>
+<li>No remote object calls (DTO&rsquo;s are ok)</li>
+</ul>
+<blockquote>
+<p>First Law of Distributed Object Design: &ldquo;don&rsquo;t distribute your objects&rdquo;. / Martin Fowler</p>
+</blockquote>
+<h2 id="3-bandwidth-is-infinite">3. Bandwidth is infinite</h2>
+<p>Bandwith is the amount of data can be transfered at a certain amount of time and is limited but getting better since the beginning of the internet.</p>
+<h4 id="what-helps-2">What helps</h4>
+<ul>
+<li>Seperation of networks (logical) and prioritisation of bandwitdh according to the prioritisation (eg. payment service &gt; reporting).</li>
+<li>When designing architecture, seperating components considering bandiwth requirements (ex. DDD Bounded Context and Aggregate patters or CQRS)</li>
+</ul>
+<h2 id="4-network-is-secure">4. Network is secure</h2>
+<p>Security experts say if a machine is not turned off (and burried), it is not secure and penetrable. Attack vectors can vary from email attachments to unencrypted network traffic.</p>
+<h4 id="what-helps-3">What helps</h4>
+<ul>
+<li>Continous threat model analysis and identify solutions / mitigations</li>
+<li>Using security principles / practises when desiging and implementing systems considering cost &amp; benefits</li>
+<li>Transparcy to business, Law and HR.</li>
+</ul>
+<h2 id="5-topology-doesnt-change">5. Topology doesn&rsquo;t change</h2>
+<p>In today&rsquo;s world topology is continiously changing. New security, application layers added, removed or modified. If you are working in an enterprise probably all the teams around you changing the topology this way or another.</p>
+<h4 id="what-helps-4">What helps</h4>
+<ul>
+<li>No hard coded adresses/names. Use DNS, Active Directory or LDAP whenever possible with cautious.</li>
+<li>Using Multicast protocols if possible.</li>
+<li>Using ESB (also modern API Gateway&rsquo;s) enhances location transparency</li>
+<li>Test topology change tests whenever possible (Some reccomends Chaos Monkey but you need to convince your management line to install this :))</li>
+</ul>
+<h2 id="6-there-is-one-administrator">6. There is one administrator</h2>
+<p>Unless we are working in a very small company with one application, it is less likely to have one administrator. In todays companies there are more moving parts, complex systems, mutliple teams even companies changing giant systems.</p>
+<h4 id="what-helps-5">What helps</h4>
+<ul>
+<li>As there are more and more admins, posibility of frequent changes is very high. Every possible component in a distributed system must be as configurable as possible.</li>
+<li>Sufficient enough logs to pinpoint production issues</li>
+<li>Admins will change -&gt; As backward compatibility is hard, running mutliple versions to be considered.</li>
+<li>CI/CD helps -&gt; Sasy to sell, difficult to build and maintain!!</li>
+</ul>
+<h2 id="7-transport-cost-is-zero">7. Transport cost is zero</h2>
+<p>In distributed environments, before the transport, data needs to be serialised and on the reciving system deserialised (aka. Marshaling). This bothe uses the resources of the system and adds latency to the operation. If you are in cloud, the cost will be more obvious.</p>
+<p>The other aspect is network transport cost. Security, lease cost and of course operation cost will come on top.</p>
+<h2 id="8-the-network-is-homogeneous">8. The network is homogeneous</h2>
+<p>Networks are extremely heteregenous. Different operating systems, databases, file servers, event different cloud providers running together with on-premise systems.</p>
+<p>Very humbly I believe, this fallacy is obselete today (unless for a particular reason you need to implement your own protocol). Because most of the architects and developers embraces this.</p>
+<h4 id="what-helps-6">What helps</h4>
+<ul>
+<li>Using standard standards/protocols like REST, SOAP etc. as much as possible.</li>
+<li>Using  and implementing solutions that supports interoprability and standard protocols and standards.</li>
+</ul>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-network-is-reliable">1. Network is reliable</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#2-latency-is-zero">2. Latency is Zero</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#3-bandwidth-is-infinite">3. Bandwidth is infinite</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#4-network-is-secure">4. Network is secure</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#5-topology-doesnt-change">5. Topology doesn&rsquo;t change</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#6-there-is-one-administrator">6. There is one administrator</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#7-transport-cost-is-zero">7. Transport cost is zero</a></li>
+    <li><a href="#8-the-network-is-homogeneous">8. The network is homogeneous</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&text=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&title=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&is_video=false&description=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=8%20Deadly%20Sins%20of%20Distributed%20Systems&body=Check out this article: https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&title=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&title=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&title=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&title=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&name=8%20Deadly%20Sins%20of%20Distributed%20Systems&description=There%20are%208%20deadly%20sins%20being%20ignored%20when%20designing%20and%20implementing%20distributed%20applications%20today.%0a%20The%20network%20is%20reliable%3b%20Latency%20is%20zero%3b%20Bandwidth%20is%20infinite%3b%20The%20network%20is%20secure%3b%20Topology%20doesn%26rsquo%3bt%20change%3b%20There%20is%20one%20administrator%3b%20Transport%20cost%20is%20zero%3b%20The%20network%20is%20homogeneous.%20%201.%20Network%20is%20reliable%20Lets%20be%20honest%2c%20network%20is%20never%20reliable.%20And%20in%20most%20of%20the%20cases%20is%20the%20%26ldquo%3bscapegoat%26rdquo%3b.%20In%20your%20standup%20meetings%20or%20in%20calls%20with%20production%20teams%2c%20its%20always%20network.">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fbgoral.github.io%2fposts%2f2020-12-30-fallacies%2f&t=8%20Deadly%20Sins%20of%20Distributed%20Systems">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  Baris Goral 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+
+
+</html>
