@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Distributed Thoughts</title>
-    <link>https://bgoral.github.io/</link>
+    <link>https://blog.ritimgitar.com/</link>
     <description>Recent content on Distributed Thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
     <lastBuildDate>Thu, 07 Jan 2021 09:00:19 +0100</lastBuildDate>
     
-	<atom:link href="https://bgoral.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ritimgitar.com/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Fundamentals</title>
-      <link>https://bgoral.github.io/posts/2021-01-07-fundamentals/</link>
+      <link>https://blog.ritimgitar.com/posts/2021-01-07-fundamentals/</link>
       <pubDate>Thu, 07 Jan 2021 09:00:19 +0100</pubDate>
       
-      <guid>https://bgoral.github.io/posts/2021-01-07-fundamentals/</guid>
-      <description>I restarted this blog to go back, remind and remember the fundamentals that brought me here. Fundamentals are the compass that keeps mind and reality together. Joel Goldberg, 45 years experienced software engineering veteran wrote a great article about basics.
+      <guid>https://blog.ritimgitar.com/posts/2021-01-07-fundamentals/</guid>
+      <description>I restarted this blog to go back, remind and remember the fundamentals that brought me here. Fundamentals are the compass that keeps mind and reality together. Joel Goldberg, 45 years experienced software engineering veteran wrote a great article about basics. I put here to remind and remember.
  Focus on the Fundamentals Technology constantly changes, but some fundamental approaches to software development transcend these trends. Here are six fundamentals that will continue to be relevant for a long time.</description>
     </item>
     
     <item>
       <title>8 Deadly Sins of Distributed Systems</title>
-      <link>https://bgoral.github.io/posts/2020-12-30-fallacies/</link>
+      <link>https://blog.ritimgitar.com/posts/2020-12-30-fallacies/</link>
       <pubDate>Wed, 30 Dec 2020 20:07:19 +0100</pubDate>
       
-      <guid>https://bgoral.github.io/posts/2020-12-30-fallacies/</guid>
+      <guid>https://blog.ritimgitar.com/posts/2020-12-30-fallacies/</guid>
       <description>There are 8 deadly sins ignored when designing and implementing distributed applications today.
  The network is reliable; Latency is zero; Bandwidth is infinite; The network is secure; Topology doesn&amp;rsquo;t change; There is one administrator; Transport cost is zero; The network is homogeneous.  1. Network is reliable Let&amp;rsquo;s be honest, the network is never reliable. And in most of the cases is the &amp;ldquo;scapegoat&amp;rdquo;. In your standup meetings or calls with production teams, its always network.</description>
     </item>
     
     <item>
       <title>About me</title>
-      <link>https://bgoral.github.io/about/</link>
+      <link>https://blog.ritimgitar.com/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://bgoral.github.io/about/</guid>
+      <guid>https://blog.ritimgitar.com/about/</guid>
       <description>My name is Baris, I am a software engineer &amp;amp; designer from Istanbul. I live in Germany since 2019.
 This is my second blog. First one was accidentily deleted. This second attempt is about tech, software development &amp;amp; architecture, future and life.
  Linkedin: Baris Göral Github: bgoral  </description>

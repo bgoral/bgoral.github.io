@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Distributed Thoughts</title>
-    <link>https://bgoral.github.io/categories/</link>
+    <link>https://blog.ritimgitar.com/categories/</link>
     <description>Recent content in Categories on Distributed Thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
     <lastBuildDate>Thu, 07 Jan 2021 09:00:19 +0100</lastBuildDate>
     
-	<atom:link href="https://bgoral.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ritimgitar.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Life, Fundamentals</title>
-      <link>https://bgoral.github.io/categories/life-fundamentals/</link>
+      <link>https://blog.ritimgitar.com/categories/life-fundamentals/</link>
       <pubDate>Thu, 07 Jan 2021 09:00:19 +0100</pubDate>
       
-      <guid>https://bgoral.github.io/categories/life-fundamentals/</guid>
+      <guid>https://blog.ritimgitar.com/categories/life-fundamentals/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Architecture</title>
-      <link>https://bgoral.github.io/categories/architecture/</link>
+      <link>https://blog.ritimgitar.com/categories/architecture/</link>
       <pubDate>Wed, 30 Dec 2020 20:07:19 +0100</pubDate>
       
-      <guid>https://bgoral.github.io/categories/architecture/</guid>
+      <guid>https://blog.ritimgitar.com/categories/architecture/</guid>
       <description></description>
     </item>
     
