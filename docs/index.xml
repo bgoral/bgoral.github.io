@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
-    <lastBuildDate>Wed, 30 Dec 2020 20:07:19 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 07 Jan 2021 09:00:19 +0100</lastBuildDate>
     
 	<atom:link href="https://bgoral.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fundamentals</title>
+      <link>https://bgoral.github.io/posts/2021-01-07-fundamentals/</link>
+      <pubDate>Thu, 07 Jan 2021 09:00:19 +0100</pubDate>
+      
+      <guid>https://bgoral.github.io/posts/2021-01-07-fundamentals/</guid>
+      <description>I restarted this blog to go back, remind and remember the fundamentals that brought me here. Fundamentals are the compass that keeps mind and reality together. Joel Goldberg, 45 years experienced software engineering veteran wrote a great article about basics.
+ Focus on the Fundamentals Technology constantly changes, but some fundamental approaches to software development transcend these trends. Here are six fundamentals that will continue to be relevant for a long time.</description>
+    </item>
     
     <item>
       <title>8 Deadly Sins of Distributed Systems</title>
