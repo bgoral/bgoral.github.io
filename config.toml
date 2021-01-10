@@ -4,6 +4,8 @@ title = "Distributed Thoughts"
 theme = "cactus"
 copyright = "Baris Goral" # 
 publishDir = "docs"
+googleAnalytics = "G-VKFXM1FV9T"
+
 
 # Main menu which appears below site header.
 [[menu.main]]
@@ -21,8 +23,7 @@ name = "About"
 url = "/about"
 weight = 3
 
-googleAnalytics = "G-VKFXM1FV9T"
-googleAnalyticsAsync = true # not required
+
 
 [params]
   colortheme = "white" # dark, light, white, or classic
