@@ -5,7 +5,7 @@ draft: false
 categories: Architecture
 ---
 
-There are 8 deadly sins ignored when designing and implementing distributed applications today.
+There are 8 deadly sins mostly ignored when designing and implementing distributed applications. I want to start my blog with analysis of these points:
 
 - The network is reliable;
 - Latency is zero;

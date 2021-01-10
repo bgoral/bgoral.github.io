@@ -37,8 +37,8 @@
       <pubDate>Wed, 30 Dec 2020 20:07:19 +0100</pubDate>
       
       <guid>https://blog.ritimgitar.com/posts/2020-12-30-fallacies/</guid>
-      <description>There are 8 deadly sins ignored when designing and implementing distributed applications today.
- The network is reliable; Latency is zero; Bandwidth is infinite; The network is secure; Topology doesn&amp;rsquo;t change; There is one administrator; Transport cost is zero; The network is homogeneous.  1. Network is reliable Let&amp;rsquo;s be honest, the network is never reliable. And in most of the cases is the &amp;ldquo;scapegoat&amp;rdquo;. In your standup meetings or calls with production teams, its always network.</description>
+      <description>There are 8 deadly sins mostly ignored when designing and implementing distributed applications. I want to start my blog with analysis of these points:
+ The network is reliable; Latency is zero; Bandwidth is infinite; The network is secure; Topology doesn&amp;rsquo;t change; There is one administrator; Transport cost is zero; The network is homogeneous.  1. Network is reliable Let&amp;rsquo;s be honest, the network is never reliable. And in most of the cases is the &amp;ldquo;scapegoat&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -47,7 +47,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://blog.ritimgitar.com/about/</guid>
-      <description>My name is Baris, I am a software engineer &amp;amp; designer from Istanbul. I live in Germany since 2019.
+      <description>My name is Baris, I am a software engineer &amp;amp; architect from Istanbul. I live in Germany since 2019.
 This is my second blog. First one was accidentily deleted. This second attempt is about tech, software development &amp;amp; architecture, future and life.
  Linkedin: Baris Göral Github: bgoral  </description>
     </item>

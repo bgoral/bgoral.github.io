@@ -3,7 +3,7 @@ title: About me
 date: 2020-30-12 19:23:00
 ---
 
-My name is Baris, I am a software engineer & designer from Istanbul. I live in Germany since 2019. 
+My name is Baris, I am a software engineer & architect from Istanbul. I live in Germany since 2019. 
 
 This is my second blog. First one was accidentily deleted. This second attempt is about tech, software development & architecture, future and life. 
 
