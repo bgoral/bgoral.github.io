@@ -4,7 +4,7 @@ title = "Distributed Thoughts"
 theme = "cactus"
 copyright = "Baris Goral" # 
 publishDir = "docs"
-googleAnalytics = "G-VKFXM1FV9T"
+googleAnalytics = "UA-187005043-1"
 
 
 # Main menu which appears below site header.
