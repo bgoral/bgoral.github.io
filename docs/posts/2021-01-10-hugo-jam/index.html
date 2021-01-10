@@ -249,7 +249,8 @@ publishDir = &quot;docs&quot;
 </code></pre><p>Then configuration of the repository to enable Github pages. There is a section under repository settings. Below is my configuration. You do not need to change the default configuration. But if you have a custom domain like me, you need to do the necessary configuration from your domain provider control panel.</p>
 <p><img src="../../githubpages.jpg" alt="Distribution"></p>
 <p>Don&rsquo;t forget to push your changes to your repository.</p>
-<pre><code>git add *
+<pre><code>hugo -D
+git add *
 git commit -m &quot;First Post&quot;
 git push -u origin main
 </code></pre><p>That&rsquo;s all. Now you have a fast, secure and free website, can handle a nationwide blackout or a hacker news front page.</p>
