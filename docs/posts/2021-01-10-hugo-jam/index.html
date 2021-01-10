@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> JAM Stack - Hugo - Blackout | Distributed Thoughts</title>
+  <meta name="description" content="&gt;&#34;People who deny the existence of dragons are often eaten by dragons. From within.&#34; Ursula K Le Guin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="JAM Stack - Hugo - Blackout" />
+<meta property="og:description" content="In 2013, I was working as a technical lead for the company website transformation project. The technology was preselected by the vendor and upper management (SharePoint) and the contract was already signed. I was going to assure the quality of delivery. The old website was also SharePoint and it was too expensive to scale and maintain. Of course, I am not going to mention about the cost of licence, development and infrastructure of this new website but this was (probably today in many organisations) the situation more or less 10 years ago." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ritimgitar.com/posts/2021-01-10-hugo-jam/" />
+<meta property="article:published_time" content="2021-01-10T11:18:19+01:00" />
+<meta property="article:modified_time" content="2021-01-10T11:18:19+01:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="JAM Stack - Hugo - Blackout"/>
+<meta name="twitter:description" content="In 2013, I was working as a technical lead for the company website transformation project. The technology was preselected by the vendor and upper management (SharePoint) and the contract was already signed. I was going to assure the quality of delivery. The old website was also SharePoint and it was too expensive to scale and maintain. Of course, I am not going to mention about the cost of licence, development and infrastructure of this new website but this was (probably today in many organisations) the situation more or less 10 years ago."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://blog.ritimgitar.com/css/style-white.css">
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://blog.ritimgitar.com/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://blog.ritimgitar.com/posts/2021-01-07-fundamentals/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&text=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&title=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&is_video=false&description=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=JAM%20Stack%20-%20Hugo%20-%20Blackout&body=Check out this article: https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&title=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&title=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&title=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&title=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&name=JAM%20Stack%20-%20Hugo%20-%20Blackout&description=In%202013%2c%20I%20was%20working%20as%20a%20technical%20lead%20for%20the%20company%20website%20transformation%20project.%20The%20technology%20was%20preselected%20by%20the%20vendor%20and%20upper%20management%20%28SharePoint%29%20and%20the%20contract%20was%20already%20signed.%20I%20was%20going%20to%20assure%20the%20quality%20of%20delivery.%20The%20old%20website%20was%20also%20SharePoint%20and%20it%20was%20too%20expensive%20to%20scale%20and%20maintain.%20Of%20course%2c%20I%20am%20not%20going%20to%20mention%20about%20the%20cost%20of%20licence%2c%20development%20and%20infrastructure%20of%20this%20new%20website%20but%20this%20was%20%28probably%20today%20in%20many%20organisations%29%20the%20situation%20more%20or%20less%2010%20years%20ago.">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&t=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-my-stack">What is my stack?</a></li>
+    <li><a href="#why-hugo-and-how-to-install">Why Hugo and how to install?</a></li>
+    <li><a href="#configuration-of-github-repository-and-creating-hugo-site">Configuration of Github repository and creating Hugo site</a></li>
+    <li><a href="#theme-and-site-configuration">Theme and site configuration</a></li>
+    <li><a href="#how-to-create-a-post">How to create a post</a></li>
+    <li><a href="#how-to-publish">How to publish</a></li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        JAM Stack - Hugo - Blackout
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-01-10 11:18:19 &#43;0100 CET" itemprop="datePublished">2021-01-10</time>
+          
+        </div>
+        
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <p>In 2013, I was working as a technical lead for the company website transformation project. The technology was preselected by the vendor and upper management (SharePoint) and the contract was already signed. I was going to assure the quality of delivery. The old website was also SharePoint and it was too expensive to scale and maintain. Of course, I am not going to mention about the cost of licence, development and infrastructure of this new website but this was (probably today in many organisations) the situation more or less 10 years ago.</p>
+<p>In Marc 2015, a countrywide electricity blackout occurred. We were working for an electric distribution company with %25 per-cent market share (8 Mil. customer). During the 1 day long blackout, customers were trying to get information about what had happened. Unfortunately, Sharepoint could not survive the first 1 hour. One HTML file, in 3 servers, cache enabled, behind an NLB, <strong>survived</strong>. (One mobile app having RabbitMQ backend also survived but I will tell this story later.)</p>
+<p>The idea of static page generators was already there. Jekyll (and many others) was there since 2008. Now (probably) static page generators are the most secure, cost-efficient and scalable way of publishing things online. Of course, needs to be combined with different components (API&rsquo;s and SaaS services) for large scale requirements. This is also called <a href="https://jamstack.org/">JAM Stack</a>.</p>
+<p>That&rsquo;s why I built my blog with <a href="https://gohugo.io/">Hugo</a> and publish it via <a href="https://github.com/bgoral/bgoral.github.io">Github</a> using my GoDaddy domain.</p>
+<h2 id="what-is-my-stack">What is my stack?</h2>
+<ul>
+<li>Windows 10</li>
+<li>WSL 2 / Ubuntu (<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Very straghtforward</a>)</li>
+<li>(new) Terminal (<a href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701#activetab=pivot:overviewtab">Windows Store</a> &gt; Get )</li>
+<li>A repository in github.com</li>
+<li>Vim</li>
+<li>Hugo</li>
+</ul>
+<h2 id="why-hugo-and-how-to-install">Why Hugo and how to install?</h2>
+<p>I was planning to use Jekyll, but configuration, package dependencies was too difficult for me to solve in WSL 2 environment. Probably there are solutions, but I did not want to lose my writing enthusiasm. I chose Hugo because it was written in go. I wanted to try and probably will write some custom plugins.</p>
+<p>After the installation of WSL2 please update the package index</p>
+<pre><code>apt get update
+</code></pre><p>For the installation of Hugo:</p>
+<pre><code>apt-get install hugo 
+</code></pre><p>That&rsquo;s it. You can start writing (Really !! ).</p>
+<h2 id="configuration-of-github-repository-and-creating-hugo-site">Configuration of Github repository and creating Hugo site</h2>
+<p>To publish your static website via Github, you need to have a repository named <strong>xxx .github.io</strong> and It has to be public. If you want a private repository, you need to pay for static website publish feature. My repository name is <a href="https://github.com/bgoral/bgoral.github.io">bgoral.github.io</a>.</p>
+<p>You can create your repository via command line but I preferred to create this particular repository from github.com. After I created the repository, cloned the repository and initiated my new website with Hugo executable:</p>
+<pre><code>git clone https://github.com/bgoral/bgoral.github.io.git
+hugo new site bgoral.github.io  
+</code></pre><h2 id="theme-and-site-configuration">Theme and site configuration</h2>
+<p>For my blog, I chose <a href="https://github.com/monkeyWzr/hugo-theme-cactus">Cactus Theme</a>. You can choose your theme among hundreds of other themes from <a href="https://themes.gohugo.io/">themes.gohugo.io</a>. To install <strong>Cactus</strong> to my newly created site:</p>
+<pre><code>cd bgoral.github.io
+git clone https://github.com/monkeyWzr/hugo-theme-cactus.git themes/cactus
+</code></pre><p>In the site folder, there is a file named config.toml. In this file changed the theme to</p>
+<pre><code># config.toml
+theme = &quot;cactus&quot;
+</code></pre><p>Also changed some other configurations like colours, some text parameters. But this will depend on the theme you choose.  Please refer to your theme documentation.</p>
+<p>And to test if this is working or not:</p>
+<pre><code>cd bgoral.github.io
+hugo server
+</code></pre><p>The site is accessible from <a href="http://localhost:1313/">http://localhost:1313/</a></p>
+<h2 id="how-to-create-a-post">How to create a post</h2>
+<p>I create posts manually under <strong>content/posts</strong> folder with datetime information:</p>
+<pre><code>vim content/posts/2021-01-10-hugo-jam.md
+</code></pre><p>Hugo is looking for some metadata at the beginning of the post.</p>
+<pre><code>---
+title: &quot;JAM Stack - How I built this blog&quot;
+date: 2021-01-10T11:18:19+01:00
+draft: false
+categories: Best Practises, Architecture
+---
+</code></pre><p>Above is the metadata of this post.</p>
+<h2 id="how-to-publish">How to publish</h2>
+<p>The first step is to set Hugo <strong>&ldquo;publishDir&rdquo;</strong> as <strong>&ldquo;docs&rdquo;</strong> in the <strong>config.toml</strong>. This is for compliance and easy configuration. In Github pages documentation says;</p>
+<blockquote>
+<p>If you choose the /docs folder of any branch as your publishing source, GitHub Pages will read everything to publish your site, including the CNAME file, from the /docs folder. For example, when you edit your custom domain through the GitHub Pages settings, the custom domain will write to /docs/CNAME. For more information about CNAME files, see &ldquo;Managing a custom domain for your GitHub Pages site.&rdquo;</p>
+</blockquote>
+<pre><code># config.toml
+publishDir = &quot;docs&quot;
+</code></pre><p>Then configuration of the repository to enable Github pages. There is a section under repository settings. Below is my configuration. You do not need to change the default configuration. But if you have a custom domain like me, you need to do the necessary configuration from your domain provider control panel.</p>
+<p><img src="../../githubpages.jpg" alt="Distribution"></p>
+<p>Don&rsquo;t forget to push your changes to your repository.</p>
+<pre><code>git add *
+git commit -m &quot;First Post&quot;
+git push -u origin main
+</code></pre><p>That&rsquo;s all. Now you have a fast, secure and free website, can handle a nationwide blackout or a hacker news front page.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-my-stack">What is my stack?</a></li>
+    <li><a href="#why-hugo-and-how-to-install">Why Hugo and how to install?</a></li>
+    <li><a href="#configuration-of-github-repository-and-creating-hugo-site">Configuration of Github repository and creating Hugo site</a></li>
+    <li><a href="#theme-and-site-configuration">Theme and site configuration</a></li>
+    <li><a href="#how-to-create-a-post">How to create a post</a></li>
+    <li><a href="#how-to-publish">How to publish</a></li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&text=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&title=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&is_video=false&description=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=JAM%20Stack%20-%20Hugo%20-%20Blackout&body=Check out this article: https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&title=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&title=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&title=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&title=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&name=JAM%20Stack%20-%20Hugo%20-%20Blackout&description=In%202013%2c%20I%20was%20working%20as%20a%20technical%20lead%20for%20the%20company%20website%20transformation%20project.%20The%20technology%20was%20preselected%20by%20the%20vendor%20and%20upper%20management%20%28SharePoint%29%20and%20the%20contract%20was%20already%20signed.%20I%20was%20going%20to%20assure%20the%20quality%20of%20delivery.%20The%20old%20website%20was%20also%20SharePoint%20and%20it%20was%20too%20expensive%20to%20scale%20and%20maintain.%20Of%20course%2c%20I%20am%20not%20going%20to%20mention%20about%20the%20cost%20of%20licence%2c%20development%20and%20infrastructure%20of%20this%20new%20website%20but%20this%20was%20%28probably%20today%20in%20many%20organisations%29%20the%20situation%20more%20or%20less%2010%20years%20ago.">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-10-hugo-jam%2f&t=JAM%20Stack%20-%20Hugo%20-%20Blackout">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  Baris Goral 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+
+
+</html>
