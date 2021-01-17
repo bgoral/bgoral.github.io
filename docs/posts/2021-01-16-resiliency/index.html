@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> What about resiliency? | Distributed Thoughts</title>
+  <meta name="description" content="&gt;&#34;People who deny the existence of dragons are often eaten by dragons. From within.&#34; Ursula K Le Guin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="What about resiliency?" />
+<meta property="og:description" content="In the reactive manifesto resilient systems described as:
+ Resilient: The system stays responsive in the face of failure. This applies not only to highly-available, mission-critical systems — any system that is not resilient will be unresponsive after a failure. Link
+ Although there is a kind of philosophical manifesto available written/signed by builders, I believe, the expectation from the writers of this manifesto was always to build resilient things under chaos, uncertainty and continuous change." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ritimgitar.com/posts/2021-01-16-resiliency/" />
+<meta property="article:published_time" content="2021-01-16T11:18:19+01:00" />
+<meta property="article:modified_time" content="2021-01-16T11:18:19+01:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="What about resiliency?"/>
+<meta name="twitter:description" content="In the reactive manifesto resilient systems described as:
+ Resilient: The system stays responsive in the face of failure. This applies not only to highly-available, mission-critical systems — any system that is not resilient will be unresponsive after a failure. Link
+ Although there is a kind of philosophical manifesto available written/signed by builders, I believe, the expectation from the writers of this manifesto was always to build resilient things under chaos, uncertainty and continuous change."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://blog.ritimgitar.com/css/style-white.css">
+  
+   <link rel="stylesheet" href="https://blog.ritimgitar.com/css/custom.css"> 
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://blog.ritimgitar.com/images/favicon.ico" />
+
+  
+  
+  
+  
+  
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-187005043-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://blog.ritimgitar.com/posts/2021-01-10-hugo-jam/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&text=What%20about%20resiliency%3f">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&title=What%20about%20resiliency%3f">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&is_video=false&description=What%20about%20resiliency%3f">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=What%20about%20resiliency%3f&body=Check out this article: https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&title=What%20about%20resiliency%3f">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&title=What%20about%20resiliency%3f">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&title=What%20about%20resiliency%3f">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&title=What%20about%20resiliency%3f">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&name=What%20about%20resiliency%3f&description=In%20the%20reactive%20manifesto%20resilient%20systems%20described%20as%3a%0a%20Resilient%3a%20The%20system%20stays%20responsive%20in%20the%20face%20of%20failure.%20This%20applies%20not%20only%20to%20highly-available%2c%20mission-critical%20systems%20%e2%80%94%20any%20system%20that%20is%20not%20resilient%20will%20be%20unresponsive%20after%20a%20failure.%20Link%0a%20Although%20there%20is%20a%20kind%20of%20philosophical%20manifesto%20available%20written%2fsigned%20by%20builders%2c%20I%20believe%2c%20the%20expectation%20from%20the%20writers%20of%20this%20manifesto%20was%20always%20to%20build%20resilient%20things%20under%20chaos%2c%20uncertainty%20and%20continuous%20change.">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&t=What%20about%20resiliency%3f">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#communication--messaging">Communication / Messaging</a></li>
+    <li><a href="#common-design-patterns-and-principles">Common Design Patterns and Principles</a>
+      <ul>
+        <li><a href="#specific-recommendations-from-cloud-providers">Specific Recommendations from Cloud Providers</a></li>
+      </ul>
+    </li>
+    <li><a href="#microservices-network-resiliency--service-mesh">Microservices Network Resiliency &gt; Service Mesh</a></li>
+    <li><a href="#application-focus-resiliency--dapr">Application Focus Resiliency &gt; Dapr</a></li>
+    <li><a href="#some-others-to-mention">Some others to mention</a></li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        What about resiliency?
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-01-16 11:18:19 &#43;0100 CET" itemprop="datePublished">2021-01-16</time>
+          
+        </div>
+        
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <p>In the reactive manifesto resilient systems described as:</p>
+<blockquote>
+<p>Resilient: The system stays responsive in the face of failure. This applies not only to highly-available, mission-critical systems — any system that is not resilient will be unresponsive after a failure. <a href="https://www.reactivemanifesto.org/" title="Reactive Manifesto">Link</a></p>
+</blockquote>
+<p>Although there is a kind of philosophical manifesto available written/signed by builders, I believe, the expectation from the writers of this manifesto was always to build resilient things under chaos, uncertainty and continuous change. Some examples may be;</p>
+<ul>
+<li>New business area/expansion</li>
+<li>Cloud provider update/decommission/change certain behaviour or API</li>
+<li>Government policy change</li>
+<li>Increase Security</li>
+<li>Big migrations / forced migrations</li>
+<li>Covid-19</li>
+<li>Innovation</li>
+</ul>
+<h2 id="communication--messaging">Communication / Messaging</h2>
+<p>Maybe it&rsquo;s boring but when it comes to describing resiliency we need to talk about the <strong>semantics of a message delivery mechanism</strong>. There are three basic categories:</p>
+<ul>
+<li>
+<p><strong>at-most-once</strong>: messages may be delivered or messages may be lost.</p>
+<p>Cheapest—highest performance, least implementation overhead—because it can be done in a fire-and-forget fashion without keeping state at the sending end or in the transport mechanism.</p>
+</li>
+<li>
+<p><strong>at-least-once</strong>: messages will be delivered but messages may be duplicated.</p>
+<p>Requires <strong>retries</strong> to counter transport losses, which means keeping state at the sending end and having an acknowledgement mechanism at the receiving end</p>
+</li>
+<li>
+<p><strong>exactly-once</strong>: the message can neither be lost nor duplicated, will be delivered as requested.</p>
+<p><strong>Most expensive</strong>—and has consequently <strong>worst performance</strong> —because in addition to the <strong>at-least-once</strong>, state to be kept at the receiving end to filter out duplicate deliveries.</p>
+<p>In mission-critical environments like trading/banking /healthcare, etc. understanding delivery semantic is extremely important. Most of the time business teams request guaranteed delivery and order ( <strong>exactly-once</strong>). But guaranteed-delivery is most efficient if it also implemented in business level;</p>
+<blockquote>
+<p>Stating that it is important on the business level that every message is received exactly-once like it is in order processing, means that every message constitutes a unique business transaction. Like with in-order processing, WSRM (or its competitors) guarantees exactly-once delivery by attaching unique numbers to messages, acknowledging receipt, and possibly resending or duplicate removal.</p>
+</blockquote>
+<blockquote>
+<p>If reliability is important on the business level, do it on the business level. A Reliable Messaging layer can handle only generic logic, but that&rsquo;s not what we want: we want business-specific logic for in-order and exactly-once processing. <a href="https://www.infoq.com/articles/no-reliable-messaging/" title="Nobody Needs Reliable Messaging">Article</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="common-design-patterns-and-principles">Common Design Patterns and Principles</h2>
+<p>There are common design patterns/principles per business case needs to considered together with delivery semantics.</p>
+<ul>
+<li>
+<p>Retry: Enables an application or a service to handle transient failures while connecting a service or network resource, by transparently retrying a failed operation. (<a href="https://github.com/Netflix/Hystrix" title="Hystrix">Hystrix</a>,<a href="https://github.com/resilience4j/resilience4j" title="Resilience4j">Resilience4j</a>,<a href="https://github.com/App-vNext/Polly" title="Polly">Polly</a>.<a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling" title="Transient Fault Application Block">Some History</a>)</p>
+</li>
+<li>
+<p>Circuit Breaker: This always seems me a complementary pattern to Retry. The scenario is Service signalling that it is becoming unhealthy and the circuit breaker then gives the service a chance to recover by throttling back the number of requests or rerouting them completely. Once the service gets recovered, the circuit breaker slowly ramps up requests to the service so as not to immediately overwhelm it and risk it becoming unhealthy again.</p>
+<blockquote>
+<p>The Circuit Breaker pattern prevents an application from performing an operation that is likely to fail. (<a href="https://pragprog.com/titles/mnee2/release-it-second-edition/" title="Release It!">Release It!</a>)</p>
+</blockquote>
+<p>Circuit Breaker proxy is a state machine having 3 states (Open, Half-Open, Closed)</p>
+</li>
+</ul>
+<p><img src="../../cirbreaker.png" alt="Circiut Breaker"></p>
+<ul>
+<li>
+<p>Bulkhead Principle: In a ship &ldquo;Bulkheads&rdquo; prevents water to move from one side to another. The other term for Bulkhead is &ldquo;Retaining Wall&rdquo;. As a design principle, By partitioning our systems, we can keep a failure in one part of the system from destroying everything.</p>
+<p>In most of the resources <strong>Bulkhead</strong> recommended particularly with shared services models. Failures in service-oriented or microservice architectures can propagate very quickly. A of &ldquo;Chain Reaction&rdquo; can trigger a serious set of destructive events. Then you’d better put in some Bulkheads. One thing to consider is this may lead to less efficient use of resources.</p>
+</li>
+<li>
+<p>Fail Fast: The worst thing is slow failure responses and unnecessary usage of system resources. The principle says &ldquo;Verify integrity early and fast&rdquo;</p>
+<ul>
+<li>Avoid slow responses and fail fast.</li>
+<li>Reserve resources, verify integration points early.</li>
+<li>Validate inputs as early as possible</li>
+</ul>
+</li>
+<li>
+<p>Cyber Security This article is not about cybersecurity resiliency, but systems need to be designed to be resilient under highly dynamic security threats. In covid-19 times one of the most hyped words was also resiliency and I believe will continue to be.</p>
+</li>
+</ul>
+<h3 id="specific-recommendations-from-cloud-providers">Specific Recommendations from Cloud Providers</h3>
+<ul>
+<li>Microsoft recommended Patterns for application/service and network resiliency &gt; <a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/category/resiliency">https://docs.microsoft.com/en-us/azure/architecture/patterns/category/resiliency</a></li>
+<li>AWS Well-Architected Framework for mostly service and network resiliency &gt; <a href="https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/resiliency-and-the-components-of-reliability.html">https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/resiliency-and-the-components-of-reliability.html</a></li>
+<li>Google Cloud recommends certain tools for service and network resiliency &gt; <a href="https://cloud.google.com/solutions/scalable-and-resilient-apps#resilience_designing_to_withstand_failures">https://cloud.google.com/solutions/scalable-and-resilient-apps#resilience_designing_to_withstand_failures</a></li>
+</ul>
+<h2 id="microservices-network-resiliency--service-mesh">Microservices Network Resiliency &gt; Service Mesh</h2>
+<p>A service mesh is the logical layer between services that adds additional capabilities like traffic control, service discovery, load balancing, <strong>resilience</strong>, observability, security, and so on. A service mesh allows applications to offload these capabilities from application-level libraries and allow developers to focus on differentiating business logic. Service Mesh primarily focuses on service-service communication resiliency.</p>
+<blockquote>
+<p>Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. <a href="https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh" title="Redhat Service Mesh">From Redhat</a></p>
+</blockquote>
+<p>Service Mesh builds on top of &ldquo;Layer 5&rdquo;. There is also a great website (and company) dedicated to service meshes <a href="https://layer5.io/landscape" title="Layer 5">Layer5</a>. I won&rsquo;t dive into this in this post.</p>
+<p>Service Mesh architecture contains &ldquo;mostly&rdquo; 2 layers called planes:</p>
+<ul>
+<li>Control Plane</li>
+<li>Data Plane</li>
+</ul>
+<p><img src="../../istio.png" alt="Istio" title="Istio Architecture"></p>
+<h2 id="application-focus-resiliency--dapr">Application Focus Resiliency &gt; Dapr</h2>
+<p>In dapr documentation dapr described as ;</p>
+<blockquote>
+<p>Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks.</p>
+</blockquote>
+<p><img src="../../dapr.png" alt="Dapr" title="Dapr Architecture"></p>
+<h2 id="some-others-to-mention">Some others to mention</h2>
+<ul>
+<li>Adaptive Resiliency concept &ndash;&gt; <a href="https://medium.com/@NetflixTechBlog/performance-under-load-3e6fa9a60581">https://medium.com/@NetflixTechBlog/performance-under-load-3e6fa9a60581</a></li>
+<li><a href="https://ballerina.io/">https://ballerina.io/</a> &ldquo;directly address the Fallacies of Distributed Computing as part of their application logic. This facilitates resilient, secure, performant network applications to be within every programmer’s reach.&rdquo;</li>
+<li>Saga Pattern</li>
+</ul>
+<p>In my next post, I will share how to use dapr locally and with Azure AKS. Less talk, more code.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#communication--messaging">Communication / Messaging</a></li>
+    <li><a href="#common-design-patterns-and-principles">Common Design Patterns and Principles</a>
+      <ul>
+        <li><a href="#specific-recommendations-from-cloud-providers">Specific Recommendations from Cloud Providers</a></li>
+      </ul>
+    </li>
+    <li><a href="#microservices-network-resiliency--service-mesh">Microservices Network Resiliency &gt; Service Mesh</a></li>
+    <li><a href="#application-focus-resiliency--dapr">Application Focus Resiliency &gt; Dapr</a></li>
+    <li><a href="#some-others-to-mention">Some others to mention</a></li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&text=What%20about%20resiliency%3f">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&title=What%20about%20resiliency%3f">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&is_video=false&description=What%20about%20resiliency%3f">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=What%20about%20resiliency%3f&body=Check out this article: https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&title=What%20about%20resiliency%3f">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&title=What%20about%20resiliency%3f">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&title=What%20about%20resiliency%3f">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&title=What%20about%20resiliency%3f">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&name=What%20about%20resiliency%3f&description=In%20the%20reactive%20manifesto%20resilient%20systems%20described%20as%3a%0a%20Resilient%3a%20The%20system%20stays%20responsive%20in%20the%20face%20of%20failure.%20This%20applies%20not%20only%20to%20highly-available%2c%20mission-critical%20systems%20%e2%80%94%20any%20system%20that%20is%20not%20resilient%20will%20be%20unresponsive%20after%20a%20failure.%20Link%0a%20Although%20there%20is%20a%20kind%20of%20philosophical%20manifesto%20available%20written%2fsigned%20by%20builders%2c%20I%20believe%2c%20the%20expectation%20from%20the%20writers%20of%20this%20manifesto%20was%20always%20to%20build%20resilient%20things%20under%20chaos%2c%20uncertainty%20and%20continuous%20change.">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-16-resiliency%2f&t=What%20about%20resiliency%3f">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  Baris Goral 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+
+
+</html>
