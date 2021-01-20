@@ -37,7 +37,7 @@ Latency is the inherent delay present in any communication, regardless of the si
 In other words; time to cross the network in one direction. 
 
 #### What helps 
-- Optimise geography 
+- Optimize geography 
     - Reduce the number of remote calls as much as possible
 - No remote object calls (DTO's are ok)
 
@@ -49,7 +49,7 @@ In other words; time to cross the network in one direction.
 Bandwidth is the amount of data can be transferred at a certain amount of time and is limited but getting better since the beginning of the internet. 
 
 #### What helps 
-- Separation of networks (logical) and prioritisation of bandwidth according to the prioritisation (eg. payment service > reporting).
+- Separation of networks (logical) and prioritization of bandwidth according to the prioritization (eg. payment service > reporting).
 - When designing architecture, separating components considering bandwidth requirements (ex. DDD Bounded Context and Aggregate patters or CQRS)
 
 ## 4. Network is secure
@@ -58,8 +58,8 @@ Security experts say if a machine is not turned off (and buried), it is not secu
 
 
 #### What helps 
-- Continous threat model analysis and identify solutions/mitigations
-- Using security principles / practises when designing and implementing systems considering cost & benefits
+- Continuous threat model analysis and identify solutions/mitigations
+- Using security principles / practices when designing and implementing systems considering cost & benefits
 - Transparency to business, Law and HR. 
 
 
@@ -87,7 +87,7 @@ Unless we are working in a very small company with one application, it is less l
 
 ## 7. Transport cost is zero
 
-In distributed environments, before the transport, data needs to be serialised and on the receiving system deserialised (aka. Marshaling). Both use the resources of the system and adds latency to the operation. If you are in the cloud, the cost will be more obvious. 
+In distributed environments, before the transport, data needs to be serialized and on the receiving system de-serialized (aka. Marshaling). Both use the resources of the system and adds latency to the operation. If you are in the cloud, the cost will be more obvious. 
 
 The other aspect is the network transport cost. Security, lease cost and of course operation cost will come on top. 
 

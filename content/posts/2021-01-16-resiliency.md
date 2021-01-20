@@ -11,7 +11,7 @@ In the reactive manifesto resilient systems described as:
 Although there is a kind of philosophical manifesto available written/signed by builders, I believe, the expectation from the writers of this manifesto was always to build resilient things under chaos, uncertainty and continuous change. Some examples may be; 
 
 - New business area/expansion
-- Cloud provider update/decommission/change certain behaviour or API
+- Cloud provider update/decommission/change certain behavior or API
 - Government policy change
 - Increase Security
 - Big migrations / forced migrations
@@ -48,7 +48,7 @@ Maybe it's boring but when it comes to describing resiliency we need to talk abo
 There are common design patterns/principles per business case needs to considered together with delivery semantics.
 
 - Retry: Enables an application or a service to handle transient failures while connecting a service or network resource, by transparently retrying a failed operation. ([Hystrix][4],[Resilience4j][3],[Polly][7].[Some History][5])
-- Circuit Breaker: This always seems me a complementary pattern to Retry. The scenario is Service signalling that it is becoming unhealthy and the circuit breaker then gives the service a chance to recover by throttling back the number of requests or rerouting them completely. Once the service gets recovered, the circuit breaker slowly ramps up requests to the service so as not to immediately overwhelm it and risk it becoming unhealthy again.
+- Circuit Breaker: This always seems me a complementary pattern to Retry. The scenario is Service signaling that it is becoming unhealthy and the circuit breaker then gives the service a chance to recover by throttling back the number of requests or rerouting them completely. Once the service gets recovered, the circuit breaker slowly ramps up requests to the service so as not to immediately overwhelm it and risk it becoming unhealthy again.
     
     > The Circuit Breaker pattern prevents an application from performing an operation that is likely to fail. ([Release It!][6]) 
 
@@ -98,7 +98,8 @@ In dapr documentation dapr described as ;
 ![Dapr](../../dapr.png "Dapr Architecture")
 
 
-## Some others to mention
+## Additionally
+
 - Adaptive Resiliency concept --> https://medium.com/@NetflixTechBlog/performance-under-load-3e6fa9a60581
 - https://ballerina.io/ "directly address the Fallacies of Distributed Computing as part of their application logic. This facilitates resilient, secure, performant network applications to be within every programmer’s reach."
 - Saga Pattern

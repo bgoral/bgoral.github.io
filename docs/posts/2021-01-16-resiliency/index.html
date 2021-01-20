@@ -188,7 +188,7 @@ if (!doNotTrack) {
     </li>
     <li><a href="#microservices-network-resiliency--service-mesh">Microservices Network Resiliency &gt; Service Mesh</a></li>
     <li><a href="#application-focus-resiliency--dapr">Application Focus Resiliency &gt; Dapr</a></li>
-    <li><a href="#some-others-to-mention">Some others to mention</a></li>
+    <li><a href="#additionally">Additionally</a></li>
   </ul>
 </nav>
     </div>
@@ -222,7 +222,7 @@ if (!doNotTrack) {
 <p>Although there is a kind of philosophical manifesto available written/signed by builders, I believe, the expectation from the writers of this manifesto was always to build resilient things under chaos, uncertainty and continuous change. Some examples may be;</p>
 <ul>
 <li>New business area/expansion</li>
-<li>Cloud provider update/decommission/change certain behaviour or API</li>
+<li>Cloud provider update/decommission/change certain behavior or API</li>
 <li>Government policy change</li>
 <li>Increase Security</li>
 <li>Big migrations / forced migrations</li>
@@ -259,7 +259,7 @@ if (!doNotTrack) {
 <p>Retry: Enables an application or a service to handle transient failures while connecting a service or network resource, by transparently retrying a failed operation. (<a href="https://github.com/Netflix/Hystrix" title="Hystrix">Hystrix</a>,<a href="https://github.com/resilience4j/resilience4j" title="Resilience4j">Resilience4j</a>,<a href="https://github.com/App-vNext/Polly" title="Polly">Polly</a>.<a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling" title="Transient Fault Application Block">Some History</a>)</p>
 </li>
 <li>
-<p>Circuit Breaker: This always seems me a complementary pattern to Retry. The scenario is Service signalling that it is becoming unhealthy and the circuit breaker then gives the service a chance to recover by throttling back the number of requests or rerouting them completely. Once the service gets recovered, the circuit breaker slowly ramps up requests to the service so as not to immediately overwhelm it and risk it becoming unhealthy again.</p>
+<p>Circuit Breaker: This always seems me a complementary pattern to Retry. The scenario is Service signaling that it is becoming unhealthy and the circuit breaker then gives the service a chance to recover by throttling back the number of requests or rerouting them completely. Once the service gets recovered, the circuit breaker slowly ramps up requests to the service so as not to immediately overwhelm it and risk it becoming unhealthy again.</p>
 <blockquote>
 <p>The Circuit Breaker pattern prevents an application from performing an operation that is likely to fail. (<a href="https://pragprog.com/titles/mnee2/release-it-second-edition/" title="Release It!">Release It!</a>)</p>
 </blockquote>
@@ -308,7 +308,7 @@ if (!doNotTrack) {
 <p>Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks.</p>
 </blockquote>
 <p><img src="../../dapr.png" alt="Dapr" title="Dapr Architecture"></p>
-<h2 id="some-others-to-mention">Some others to mention</h2>
+<h2 id="additionally">Additionally</h2>
 <ul>
 <li>Adaptive Resiliency concept &ndash;&gt; <a href="https://medium.com/@NetflixTechBlog/performance-under-load-3e6fa9a60581">https://medium.com/@NetflixTechBlog/performance-under-load-3e6fa9a60581</a></li>
 <li><a href="https://ballerina.io/">https://ballerina.io/</a> &ldquo;directly address the Fallacies of Distributed Computing as part of their application logic. This facilitates resilient, secure, performant network applications to be within every programmer’s reach.&rdquo;</li>
@@ -352,7 +352,7 @@ if (!doNotTrack) {
     </li>
     <li><a href="#microservices-network-resiliency--service-mesh">Microservices Network Resiliency &gt; Service Mesh</a></li>
     <li><a href="#application-focus-resiliency--dapr">Application Focus Resiliency &gt; Dapr</a></li>
-    <li><a href="#some-others-to-mention">Some others to mention</a></li>
+    <li><a href="#additionally">Additionally</a></li>
   </ul>
 </nav>
     </div>
