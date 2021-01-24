@@ -1,6 +1,6 @@
 ---
 title: "How Dapr works?"
-date: 2021-01-16T11:18:19+01:00
+date: 2021-01-24T18:35:19+01:00
 draft: false
 categories: Microservices
 ---

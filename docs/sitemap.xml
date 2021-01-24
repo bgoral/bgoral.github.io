@@ -3,37 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.ritimgitar.com/categories/</loc>
+    <lastmod>2021-01-24T18:35:19+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.ritimgitar.com/</loc>
+    <lastmod>2021-01-24T18:35:19+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.ritimgitar.com/posts/2021-01-24-dapr-local/</loc>
+    <lastmod>2021-01-24T18:35:19+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.ritimgitar.com/categories/microservices/</loc>
+    <lastmod>2021-01-24T18:35:19+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.ritimgitar.com/posts/</loc>
+    <lastmod>2021-01-24T18:35:19+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.ritimgitar.com/categories/architecture/</loc>
     <lastmod>2021-01-16T11:18:19+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.ritimgitar.com/categories/architecturecloudmicroservices/</loc>
-    <lastmod>2021-01-16T11:18:19+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.ritimgitar.com/categories/</loc>
-    <lastmod>2021-01-16T11:18:19+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.ritimgitar.com/</loc>
-    <lastmod>2021-01-16T11:18:19+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.ritimgitar.com/posts/2021-01-24-dapr-local/</loc>
-    <lastmod>2021-01-16T11:18:19+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.ritimgitar.com/categories/microservices/</loc>
-    <lastmod>2021-01-16T11:18:19+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.ritimgitar.com/posts/</loc>
     <lastmod>2021-01-16T11:18:19+01:00</lastmod>
   </url>
   

@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
-    <lastBuildDate>Sat, 16 Jan 2021 11:18:19 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 24 Jan 2021 18:35:19 +0100</lastBuildDate>
     
 	<atom:link href="https://blog.ritimgitar.com/categories/microservices/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>How Dapr works?</title>
       <link>https://blog.ritimgitar.com/posts/2021-01-24-dapr-local/</link>
-      <pubDate>Sat, 16 Jan 2021 11:18:19 +0100</pubDate>
+      <pubDate>Sun, 24 Jan 2021 18:35:19 +0100</pubDate>
       
       <guid>https://blog.ritimgitar.com/posts/2021-01-24-dapr-local/</guid>
       <description>What is Dapr?  Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks.

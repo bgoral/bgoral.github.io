@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
-    <lastBuildDate>Sat, 16 Jan 2021 11:18:19 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 24 Jan 2021 18:35:19 +0100</lastBuildDate>
     
 	<atom:link href="https://blog.ritimgitar.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Microservices</title>
+      <link>https://blog.ritimgitar.com/categories/microservices/</link>
+      <pubDate>Sun, 24 Jan 2021 18:35:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/categories/microservices/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Architecture</title>
@@ -27,15 +36,6 @@
       <pubDate>Sat, 16 Jan 2021 11:18:19 +0100</pubDate>
       
       <guid>https://blog.ritimgitar.com/categories/architecturecloudmicroservices/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microservices</title>
-      <link>https://blog.ritimgitar.com/categories/microservices/</link>
-      <pubDate>Sat, 16 Jan 2021 11:18:19 +0100</pubDate>
-      
-      <guid>https://blog.ritimgitar.com/categories/microservices/</guid>
       <description></description>
     </item>
     
