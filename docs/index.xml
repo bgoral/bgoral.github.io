@@ -13,6 +13,16 @@
     
     
     <item>
+      <title>How Dapr works?</title>
+      <link>https://blog.ritimgitar.com/posts/2021-01-24-dapr-local/</link>
+      <pubDate>Sat, 16 Jan 2021 11:18:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/posts/2021-01-24-dapr-local/</guid>
+      <description>What is Dapr?  Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks.
+ For me, this statement is definition of a remarkable modern solution to many complexities so I wanted to try and built a geocoding service using libpostal integrated to dapr sidecar.</description>
+    </item>
+    
+    <item>
       <title>What about resiliency?</title>
       <link>https://blog.ritimgitar.com/posts/2021-01-16-resiliency/</link>
       <pubDate>Sat, 16 Jan 2021 11:18:19 +0100</pubDate>

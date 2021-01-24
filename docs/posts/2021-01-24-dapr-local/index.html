@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> How Dapr works? | Distributed Thoughts</title>
+  <meta name="description" content="&gt;&#34;People who deny the existence of dragons are often eaten by dragons. From within.&#34; Ursula K Le Guin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="How Dapr works?" />
+<meta property="og:description" content="What is Dapr?  Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks.
+ For me, this statement is definition of a remarkable modern solution to many complexities so I wanted to try and built a geocoding service using libpostal integrated to dapr sidecar." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ritimgitar.com/posts/2021-01-24-dapr-local/" />
+<meta property="article:published_time" content="2021-01-16T11:18:19+01:00" />
+<meta property="article:modified_time" content="2021-01-16T11:18:19+01:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How Dapr works?"/>
+<meta name="twitter:description" content="What is Dapr?  Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks.
+ For me, this statement is definition of a remarkable modern solution to many complexities so I wanted to try and built a geocoding service using libpostal integrated to dapr sidecar."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://blog.ritimgitar.com/css/style-white.css">
+  
+   <link rel="stylesheet" href="https://blog.ritimgitar.com/css/custom.css"> 
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://blog.ritimgitar.com/images/favicon.ico" />
+
+  
+  
+  
+  
+  
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-187005043-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://blog.ritimgitar.com/posts/2021-01-16-resiliency/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&text=How%20Dapr%20works%3f">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&title=How%20Dapr%20works%3f">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&is_video=false&description=How%20Dapr%20works%3f">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=How%20Dapr%20works%3f&body=Check out this article: https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&title=How%20Dapr%20works%3f">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&title=How%20Dapr%20works%3f">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&title=How%20Dapr%20works%3f">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&title=How%20Dapr%20works%3f">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&name=How%20Dapr%20works%3f&description=What%20is%20Dapr%3f%20%20Dapr%20is%20a%20portable%2c%20event-driven%20runtime%20that%20makes%20it%20easy%20for%20any%20developer%20to%20build%20resilient%2c%20stateless%20and%20stateful%20applications%20that%20run%20on%20the%20cloud%20and%20edge%20and%20embraces%20the%20diversity%20of%20languages%20and%20developer%20frameworks.%0a%20For%20me%2c%20this%20statement%20is%20definition%20of%20a%20remarkable%20modern%20solution%20to%20many%20complexities%20so%20I%20wanted%20to%20try%20and%20built%20a%20geocoding%20service%20using%20libpostal%20integrated%20to%20dapr%20sidecar.">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&t=How%20Dapr%20works%3f">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        How Dapr works?
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-01-16 11:18:19 &#43;0100 CET" itemprop="datePublished">2021-01-16</time>
+          
+        </div>
+        
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <h1 id="what-is-dapr">What is Dapr?</h1>
+<blockquote>
+<p>Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks.</p>
+</blockquote>
+<p><img src="../../dapr.png" alt="Dapr" title="Dapr Architecture"></p>
+<p>For me, this statement is definition of a remarkable modern solution to many complexities so I wanted to try and built a geocoding service using libpostal integrated to dapr sidecar. My goal is not to write things that you can find in documentations or totally expired books. Instead, I want to share my experience on building such a microservice around for example around machine learning model.</p>
+<p>Why libpostal, because I was planning to write a tool using machine learning to parse and segment written addresses. This is a problem especially in countries like Turkey that there is no numeric address systems available. I came across with libpostal and found it beautiful and extendable.</p>
+<h1 id="installation">Installation</h1>
+<p>My base setup is</p>
+<ul>
+<li>WSL2 / Ubuntu 20.04</li>
+<li>Docker for Windows WSL2 integrated</li>
+<li>Visual Studio Code
+<ul>
+<li>Remote WSL</li>
+<li>Remote Containers</li>
+<li>Docker</li>
+</ul>
+</li>
+<li>Terminal</li>
+</ul>
+<p>To install dapr there are 2 different methods:</p>
+<pre><code># From Dapr Documentation 
+wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
+</code></pre><p>Another way is to download the release package manually</p>
+<pre><code># From Dapr Documentation 
+wget -q https://github.com/dapr/cli/releases/download/v1.0.0-rc.3/dapr_linux_amd64.tar.gz
+
+tar -zxfv dapr_linux_amd64.tar.gz
+cd dapr_linux_amd64
+sudo dapr init
+</code></pre><p>If you are having  no issue with initialization of dapr you should see</p>
+<pre><code>Making the jump to hyperspace...
+Downloading binaries and setting up components...
+Success! Dapr is up and running
+</code></pre><p>But unfortunately I had a couple of problems</p>
+<ul>
+<li>Docker needs to be installed and WSL2 integration needs to be enabled before installation of dapr</li>
+<li>You need to &ldquo;sudo&rdquo; for initialization</li>
+<li>If during the <strong>init</strong>, command freezes; Docker restart or Windows restart solved my issues.</li>
+</ul>
+<p>To check of dapr is installed or not;</p>
+<pre><code>dapr --version
+</code></pre><p>In this article I not going to describe kubernetes integration, but to enable locally, development cluster in Docker for windows needs to be enabled or with minicube. Minicube configuration is not straightforward as Docker. Independent from advantages of solutions I recommend Docker + kubernetes enabled for development and testing.</p>
+<pre><code>#to enable kubernetes
+dapr init --kubernetes
+#to see status
+dapr status -k
+</code></pre><h1 id="installation-of-libpostal">Installation of libpostal</h1>
+<p>To install libpostal;</p>
+<pre><code>sudo apt-get install curl autoconf automake libtool pkg-config
+
+git clone https://github.com/openvenues/libpostal
+mkdir /opt/postaldata
+chmod 777 /opt/postaldata
+cd libpostal
+./bootstrap.sh
+./configure --datadir=/opt/postaldata
+make
+sudo make install
+
+# Recommended from Documentation
+sudo ldconfig
+</code></pre><p>For the go bindings</p>
+<pre><code>go get github.com/openvenues/gopostal/expand
+
+go get github.com/openvenues/gopostal/parser
+</code></pre><p>Unfortunately this installation created some problems. To test my code I switched to 18.04.5 LTS.</p>
+<h1 id="address-parser-service">Address Parser Service</h1>
+<pre><code>from postal.parser import parse_address
+import cherrypy
+
+class adrsvc(object):
+    @cherrypy.expose
+    @cherrypy.tools.json_out()
+    @cherrypy.tools.json_in()
+    def parse(self):
+        adrstr=cherrypy.request.json
+        return parse_address(adrstr)
+
+if __name__ == '__main__':
+   config = {'server.socket_host': '0.0.0.0'}
+   cherrypy.config.update(config)
+   cherrypy.quickstart(adrsvc())
+
+</code></pre><p>To attach to a <strong>dapr</strong> sidecar;</p>
+<pre><code>dapr run --app-id adrsvc --app-port 8088 --dapr-http-port 8089 python adrsvc.py
+</code></pre><h1 id="what-are-the-benefits-and-common-capabilities-of-dapr">What are the benefits and common capabilities of dapr</h1>
+<p><img src="../../daprbb.png" alt="Dapr" title="Dapr Building Blocks"></p>
+<p>Most important capability apart from the functionalities above is; Dapr offers a unified programming model that delivers capabilities through a standardized HTTP/gRPC protocol.</p>
+<blockquote>
+<p>gRPC is a modern, high-performance framework that evolves the age-old remote procedure call (RPC) protocol. At the application level, gRPC streamlines messaging between clients and back-end services. Originating from Google, gRPC is open source and part of the Cloud Native Computing Foundation (CNCF) ecosystem of cloud-native offerings. CNCF considers gRPC an incubating project.</p>
+</blockquote>
+<p>There are more to learn about dapr for me. I think e2e dapr capabilities are compressed version of various paradigms of today cloud computing and a must have, must learn and use in modern application development scenarios.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents"></nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&text=How%20Dapr%20works%3f">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&title=How%20Dapr%20works%3f">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&is_video=false&description=How%20Dapr%20works%3f">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=How%20Dapr%20works%3f&body=Check out this article: https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&title=How%20Dapr%20works%3f">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&title=How%20Dapr%20works%3f">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&title=How%20Dapr%20works%3f">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&title=How%20Dapr%20works%3f">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&name=How%20Dapr%20works%3f&description=What%20is%20Dapr%3f%20%20Dapr%20is%20a%20portable%2c%20event-driven%20runtime%20that%20makes%20it%20easy%20for%20any%20developer%20to%20build%20resilient%2c%20stateless%20and%20stateful%20applications%20that%20run%20on%20the%20cloud%20and%20edge%20and%20embraces%20the%20diversity%20of%20languages%20and%20developer%20frameworks.%0a%20For%20me%2c%20this%20statement%20is%20definition%20of%20a%20remarkable%20modern%20solution%20to%20many%20complexities%20so%20I%20wanted%20to%20try%20and%20built%20a%20geocoding%20service%20using%20libpostal%20integrated%20to%20dapr%20sidecar.">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-01-24-dapr-local%2f&t=How%20Dapr%20works%3f">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  Baris Goral 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+
+
+</html>
