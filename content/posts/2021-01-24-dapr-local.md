@@ -11,7 +11,7 @@ categories: Microservices
 
 ![Dapr](../../dapr.png "Dapr Architecture")
 
-For me, this statement is definition of a remarkable modern solution to many complexities so I wanted to try and built a geocoding service using libpostal integrated to dapr sidecar. My goal is not to write things that you can find in documentations or totally expired books. Instead, I want to share my experience on building such a microservice a around machine learning model.
+For me, this statement is definition of a remarkable modern solution to many complexities so I wanted to try and built a geocoding service using libpostal integrated to dapr sidecar. My goal is not to write things that you can find in documentations or totally expired books. Instead, I want to share my experience about building a microservice for a machine learning model.
 
 Why libpostal, because I was planning to write a tool using machine learning to parse and segment written addresses. This is a problem especially in countries like Turkey that there is no numeric address systems available. I came across with libpostal and found it beautiful and extendable. 
 
