@@ -65,7 +65,7 @@ To check of dapr is installed or not;
 dapr --version
 ```
 
-In this article I not going to describe kubernetes integration, but to enable locally, development cluster in Docker for windows needs to be enabled or with minicube. Minicube configuration is not straightforward as Docker. Independent from advantages of solutions I recommend Docker + kubernetes enabled for development and testing. 
+In this article I not going to describe kubernetes integration, but to enable locally, development cluster in Docker for windows needs to be enabled or with Minicube. Minicube installation in Windows is not as straightforward as Docker. Independent from advantages and maturity of solutions I recommend Docker + kubernetes enabled for development and testing. 
 
 ```
 #to enable kubernetes
