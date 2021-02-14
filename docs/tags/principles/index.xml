@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Principles on Distributed Thoughts</title>
+    <link>https://blog.ritimgitar.com/tags/principles/</link>
+    <description>Recent content in Principles on Distributed Thoughts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Baris Goral</copyright>
+    <lastBuildDate>Wed, 30 Dec 2020 20:07:19 +0100</lastBuildDate>
+    
+	<atom:link href="https://blog.ritimgitar.com/tags/principles/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>8 Deadly Sins of Distributed Systems</title>
+      <link>https://blog.ritimgitar.com/posts/2020-12-30-fallacies/</link>
+      <pubDate>Wed, 30 Dec 2020 20:07:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/posts/2020-12-30-fallacies/</guid>
+      <description>There are 8 deadly sins mostly ignored when designing and implementing distributed applications. I want to start my blog with analysis of these points:
+ The network is reliable; Latency is zero; Bandwidth is infinite; The network is secure; Topology doesn&amp;rsquo;t change; There is one administrator; Transport cost is zero; The network is homogeneous.  1. Network is reliable Let&amp;rsquo;s be honest, the network is never reliable. And in most of the cases is the &amp;ldquo;scapegoat&amp;rdquo;.</description>
+    </item>
+    
+  </channel>
+</rss>

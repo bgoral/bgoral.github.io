@@ -2,7 +2,13 @@
 title: "Fundamentals"
 date: 2021-01-07T09:00:19+01:00
 draft: false
-categories: Life, Fundamentals
+categories: 
+- Life
+- Fundamentals
+tags:
+- Life
+- Teamwork
+- Communication
 ---
 
 I restarted this blog to go back, remind and remember the fundamentals that brought me here. Fundamentals are the compass that keeps mind and reality together. Joel Goldberg, 45 years experienced software engineering veteran wrote a great article about basics. I put here to remind and remember.

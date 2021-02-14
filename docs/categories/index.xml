@@ -31,29 +31,38 @@
     </item>
     
     <item>
-      <title>Architecture,Cloud,Microservices</title>
-      <link>https://blog.ritimgitar.com/categories/architecturecloudmicroservices/</link>
-      <pubDate>Sat, 16 Jan 2021 11:18:19 +0100</pubDate>
-      
-      <guid>https://blog.ritimgitar.com/categories/architecturecloudmicroservices/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Life,Hugo,JAM Stack</title>
-      <link>https://blog.ritimgitar.com/categories/lifehugojam-stack/</link>
+      <title>Hugo</title>
+      <link>https://blog.ritimgitar.com/categories/hugo/</link>
       <pubDate>Sun, 10 Jan 2021 11:18:19 +0100</pubDate>
       
-      <guid>https://blog.ritimgitar.com/categories/lifehugojam-stack/</guid>
+      <guid>https://blog.ritimgitar.com/categories/hugo/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Life, Fundamentals</title>
-      <link>https://blog.ritimgitar.com/categories/life-fundamentals/</link>
+      <title>JAM Stack</title>
+      <link>https://blog.ritimgitar.com/categories/jam-stack/</link>
+      <pubDate>Sun, 10 Jan 2021 11:18:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/categories/jam-stack/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fundamentals</title>
+      <link>https://blog.ritimgitar.com/categories/fundamentals/</link>
       <pubDate>Thu, 07 Jan 2021 09:00:19 +0100</pubDate>
       
-      <guid>https://blog.ritimgitar.com/categories/life-fundamentals/</guid>
+      <guid>https://blog.ritimgitar.com/categories/fundamentals/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Life</title>
+      <link>https://blog.ritimgitar.com/categories/life/</link>
+      <pubDate>Thu, 07 Jan 2021 09:00:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/categories/life/</guid>
       <description></description>
     </item>
     

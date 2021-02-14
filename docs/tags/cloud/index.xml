@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud on Distributed Thoughts</title>
+    <link>https://blog.ritimgitar.com/tags/cloud/</link>
+    <description>Recent content in Cloud on Distributed Thoughts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Baris Goral</copyright>
+    <lastBuildDate>Sat, 16 Jan 2021 11:18:19 +0100</lastBuildDate>
+    
+	<atom:link href="https://blog.ritimgitar.com/tags/cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What about resiliency?</title>
+      <link>https://blog.ritimgitar.com/posts/2021-01-16-resiliency/</link>
+      <pubDate>Sat, 16 Jan 2021 11:18:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/posts/2021-01-16-resiliency/</guid>
+      <description>In the reactive manifesto resilient systems described as:
+ Resilient: The system stays responsive in the face of failure. This applies not only to highly-available, mission-critical systems — any system that is not resilient will be unresponsive after a failure. Link
+ Although there is a kind of philosophical manifesto available written/signed by builders, I believe, the expectation from the writers of this manifesto was always to build resilient things under chaos, uncertainty and continuous change.</description>
+    </item>
+    
+  </channel>
+</rss>

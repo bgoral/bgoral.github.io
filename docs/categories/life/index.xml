@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Life on Distributed Thoughts</title>
+    <link>https://blog.ritimgitar.com/categories/life/</link>
+    <description>Recent content in Life on Distributed Thoughts</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>de-DE</language>
+    <copyright>Baris Goral</copyright>
+    <lastBuildDate>Thu, 07 Jan 2021 09:00:19 +0100</lastBuildDate>
+    
+	<atom:link href="https://blog.ritimgitar.com/categories/life/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fundamentals</title>
+      <link>https://blog.ritimgitar.com/posts/2021-01-07-fundamentals/</link>
+      <pubDate>Thu, 07 Jan 2021 09:00:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/posts/2021-01-07-fundamentals/</guid>
+      <description>I restarted this blog to go back, remind and remember the fundamentals that brought me here. Fundamentals are the compass that keeps mind and reality together. Joel Goldberg, 45 years experienced software engineering veteran wrote a great article about basics. I put here to remind and remember.
+ Focus on the Fundamentals Technology constantly changes, but some fundamental approaches to software development transcend these trends. Here are six fundamentals that will continue to be relevant for a long time.</description>
+    </item>
+    
+  </channel>
+</rss>

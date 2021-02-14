@@ -2,7 +2,11 @@
 title: "How Dapr works?"
 date: 2021-01-24T18:35:19+01:00
 draft: false
-categories: Microservices
+categories: 
+- Microservices
+tags:
+- Microservices
+- Dapr
 ---
 
 # What is Dapr?

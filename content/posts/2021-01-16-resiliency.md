@@ -2,7 +2,11 @@
 title: "What about resiliency?"
 date: 2021-01-16T11:18:19+01:00
 draft: false
-categories: Architecture,Cloud,Microservices
+categories: 
+- Architecture
+tags:
+- Microservices
+- Cloud
 ---
 In the reactive manifesto resilient systems described as: 
 
