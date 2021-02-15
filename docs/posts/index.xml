@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
-    <lastBuildDate>Sun, 24 Jan 2021 18:35:19 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 15 Feb 2021 12:07:19 +0100</lastBuildDate>
     
 	<atom:link href="https://blog.ritimgitar.com/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Heaviest Password Generator</title>
+      <link>https://blog.ritimgitar.com/posts/2021-02-14-heavypass/</link>
+      <pubDate>Mon, 15 Feb 2021 12:07:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/posts/2021-02-14-heavypass/</guid>
+      <description>HeavyPass I also think the future of authentication will be password-less link. Although we are very close to this future, we are not there yet. Still, more or less all of the applications require some sort of password, but enhancing passwords with some additional validation (Multi Factor Authentication) like SMS, Authenticator Apps, Biometric scanning etc. In addition to that, we are being forced to change passwords after some time and most of the time not allowed to use one of the last 3 passwords.</description>
+    </item>
     
     <item>
       <title>How Dapr works?</title>

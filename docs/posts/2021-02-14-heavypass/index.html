@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Heaviest Password Generator | Distributed Thoughts</title>
+  <meta name="description" content="&gt;&#34;People who deny the existence of dragons are often eaten by dragons. From within.&#34; Ursula K Le Guin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Heaviest Password Generator" />
+<meta property="og:description" content="HeavyPass I also think the future of authentication will be password-less link. Although we are very close to this future, we are not there yet. Still, more or less all of the applications require some sort of password, but enhancing passwords with some additional validation (Multi Factor Authentication) like SMS, Authenticator Apps, Biometric scanning etc. In addition to that, we are being forced to change passwords after some time and most of the time not allowed to use one of the last 3 passwords." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://blog.ritimgitar.com/posts/2021-02-14-heavypass/" />
+<meta property="article:published_time" content="2021-02-15T12:07:19+01:00" />
+<meta property="article:modified_time" content="2021-02-15T12:07:19+01:00" />
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Heaviest Password Generator"/>
+<meta name="twitter:description" content="HeavyPass I also think the future of authentication will be password-less link. Although we are very close to this future, we are not there yet. Still, more or less all of the applications require some sort of password, but enhancing passwords with some additional validation (Multi Factor Authentication) like SMS, Authenticator Apps, Biometric scanning etc. In addition to that, we are being forced to change passwords after some time and most of the time not allowed to use one of the last 3 passwords."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://blog.ritimgitar.com/css/style-white.css">
+  
+   <link rel="stylesheet" href="https://blog.ritimgitar.com/css/custom.css"> 
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://blog.ritimgitar.com/images/favicon.ico" />
+
+  
+  
+  
+  
+  
+    
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-187005043-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://blog.ritimgitar.com/posts/2021-01-24-dapr-local/">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&text=Heaviest%20Password%20Generator">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&title=Heaviest%20Password%20Generator">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&is_video=false&description=Heaviest%20Password%20Generator">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Heaviest%20Password%20Generator&body=Check out this article: https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&title=Heaviest%20Password%20Generator">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&title=Heaviest%20Password%20Generator">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&title=Heaviest%20Password%20Generator">
+      <i class="fab fa-stumbleupon " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&title=Heaviest%20Password%20Generator">
+      <i class="fab fa-digg " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&name=Heaviest%20Password%20Generator&description=HeavyPass%20I%20also%20think%20the%20future%20of%20authentication%20will%20be%20password-less%20link.%20Although%20we%20are%20very%20close%20to%20this%20future%2c%20we%20are%20not%20there%20yet.%20Still%2c%20more%20or%20less%20all%20of%20the%20applications%20require%20some%20sort%20of%20password%2c%20but%20enhancing%20passwords%20with%20some%20additional%20validation%20%28Multi%20Factor%20Authentication%29%20like%20SMS%2c%20Authenticator%20Apps%2c%20Biometric%20scanning%20etc.%20In%20addition%20to%20that%2c%20we%20are%20being%20forced%20to%20change%20passwords%20after%20some%20time%20and%20most%20of%20the%20time%20not%20allowed%20to%20use%20one%20of%20the%20last%203%20passwords.">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&t=Heaviest%20Password%20Generator">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heavypass">HeavyPass</a>
+      <ul>
+        <li><a href="#the-idea-behind-heavypass">The idea behind HeavyPass</a></li>
+        <li><a href="#the-tech-stack">The tech stack</a></li>
+        <li><a href="#challenges-and-highlights">Challenges and highlights</a></li>
+        <li><a href="#todos">Todo&rsquo;s</a></li>
+        <li><a href="#long-live-heavy-metal"><em><strong>\Long Live Heavy Metal/</strong></em></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Heaviest Password Generator
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-02-15 12:07:19 &#43;0100 CET" itemprop="datePublished">2021-02-15</time>
+          
+        </div>
+        
+        <div class="article-category">
+            <i class="fas fa-archive"></i>
+            
+            
+            <a class="category-link" href="/categories/life">Life</a>
+            
+        </div>
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/project" rel="tag">Project</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <h2 id="heavypass">HeavyPass</h2>
+<p>I also think the future of authentication will be password-less <a href="https://www.darkreading.com/endpoint/why-the-future-is-passwordless/d/d-id/1339530" title="Future is Passwrodlesss">link</a>. Although we are very close to this future, we are not there yet. Still, more or less all of the applications require some sort of password, but enhancing passwords with some additional validation (<a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" title="Multi-Factor Authentication">Multi Factor Authentication</a>) like SMS, Authenticator Apps, Biometric scanning etc. In addition to that, we are being forced to change passwords after some time and most of the time not allowed to use one of the last 3 passwords. These practices are required because there are people continuously trying to hack your accounts, why? I think this will take us to a philosophical discussion about hackers and hacking. I prefer to be as described in <a href="https://www.goodreads.com/book/show/41793.Hackers_Painters" title="Hackers and Painters">Hackers and Painters</a>. Under these circumstances; we, humble human beings continue to forget passwords and tending to use crackable, memorable and short passwords. I built <a href="https://www.heavypass.com" title="HeavyPass">HeavyPass</a> to generate memorable and strong (+ \Heavy/) passwords.</p>
+<p>The idea behind <a href="https://www.heavypass.com" title="HeavyPass">HeavyPass</a> is based on <a href="https://en.wikipedia.org/wiki/Passphrase" title="Passphrase">Passphrase</a>.</p>
+<blockquote>
+<p>Passphrases are theoretically stronger, and so should make a better choice in these cases. First, they usually are (and always should be) much longer —20 to 30 characters or more is typical— making some kinds of brute force attacks entirely impractical.</p>
+</blockquote>
+<h3 id="the-idea-behind-heavypass">The idea behind HeavyPass</h3>
+<p>If you are a Heavy Metal fan, remember songs and lyrics and can play songs with your <a href="https://www.merriam-webster.com/dictionary/air%20guitar" title="Air Guitar">air guitar</a>. <a href="https://www.heavypass.com" title="HeavyPass">HeavyPass</a> is an application for you. Because you can not remember passwords but know all of the lyrics of <a href="https://en.wikipedia.org/wiki/Metallica_(album)" title="Metallica">Black Album</a> by heart.</p>
+<h3 id="the-tech-stack">The tech stack</h3>
+<ul>
+<li>Backend : ASP .Net Core</li>
+<li>Frontend : React + Semantic UI, <a href="https://unsplash.com/" title="Unsplash">Unsplash</a></li>
+<li>Database : Mongo DB - Atlas</li>
+<li>Data Collecting : Nodejs, cherryio</li>
+<li>Platform : Heroku</li>
+</ul>
+<h3 id="challenges-and-highlights">Challenges and highlights</h3>
+<ul>
+<li>
+<p>Asynchronous programming brings an overhead on debugging and once needs to focus a lot on concurrency and parallelism. This was my first challenge when trying to extract heavy metal albums from the web. Promises helped a lot but also lack of IP rate filtering.</p>
+</li>
+<li>
+<p>When you have roots in pure CSS and JavaScript, the learning curve of ReactJS is lesser but still unable to understand the requirement for this complex build and debug toolchain. Even after I removed all unrequired references, my &ldquo;node_modules&rdquo; folder is around 250MB. I hope some Nodejs enthusiasts are as of now building solutions for this. I also want to mention the amount of energy spent during the project build and debugging.</p>
+</li>
+<li>
+<p><a href="https://unsplash.com/" title="Unsplash">Unsplash</a> by beautifully opening their random image <a href="https://source.unsplash.com/" title="Unsplash Random API">API</a>.</p>
+</li>
+<li>
+<p>I was not planning to use MongoDB. In the beginning, I started with PostgreSQL (because I am a Fanboy). I was planning to use Azure App services and PaaS PostgreSQL. When I see the cost statistics, I decided to move to more developer-friendly options. For such a frontend scenario, MongoDB is one of the best options and Atlas is providing a great free startup option. I had 0 issues.</p>
+</li>
+<li>
+<p><a href="https://heroku.com" title="Heroku">Heroku</a> is a superior platform if you are a developer just want to experiment with your ideas in a battle-tested environment in a technology you like with low cost or no cost. I started with the developer account completed the application, deployed without any issue. I did have 0 issues. But If you want to run .Net, the platform requires familiarity with Docker builds.</p>
+</li>
+</ul>
+<h3 id="todos">Todo&rsquo;s</h3>
+<ul>
+<li>Publish the codes of frontend,</li>
+<li>After enhancing the security, publish the full codebase</li>
+<li>Copy when clicking each password</li>
+<li>More user-friendly UI</li>
+<li>Offline Mobile Application</li>
+</ul>
+<h3 id="long-live-heavy-metal"><em><strong>\Long Live Heavy Metal/</strong></em></h3>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heavypass">HeavyPass</a>
+      <ul>
+        <li><a href="#the-idea-behind-heavypass">The idea behind HeavyPass</a></li>
+        <li><a href="#the-tech-stack">The tech stack</a></li>
+        <li><a href="#challenges-and-highlights">Challenges and highlights</a></li>
+        <li><a href="#todos">Todo&rsquo;s</a></li>
+        <li><a href="#long-live-heavy-metal"><em><strong>\Long Live Heavy Metal/</strong></em></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&text=Heaviest%20Password%20Generator">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&title=Heaviest%20Password%20Generator">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&is_video=false&description=Heaviest%20Password%20Generator">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Heaviest%20Password%20Generator&body=Check out this article: https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&title=Heaviest%20Password%20Generator">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&title=Heaviest%20Password%20Generator">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.stumbleupon.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&title=Heaviest%20Password%20Generator">
+      <i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://digg.com/submit?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&title=Heaviest%20Password%20Generator">
+      <i class="fab fa-digg fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&name=Heaviest%20Password%20Generator&description=HeavyPass%20I%20also%20think%20the%20future%20of%20authentication%20will%20be%20password-less%20link.%20Although%20we%20are%20very%20close%20to%20this%20future%2c%20we%20are%20not%20there%20yet.%20Still%2c%20more%20or%20less%20all%20of%20the%20applications%20require%20some%20sort%20of%20password%2c%20but%20enhancing%20passwords%20with%20some%20additional%20validation%20%28Multi%20Factor%20Authentication%29%20like%20SMS%2c%20Authenticator%20Apps%2c%20Biometric%20scanning%20etc.%20In%20addition%20to%20that%2c%20we%20are%20being%20forced%20to%20change%20passwords%20after%20some%20time%20and%20most%20of%20the%20time%20not%20allowed%20to%20use%20one%20of%20the%20last%203%20passwords.">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fblog.ritimgitar.com%2fposts%2f2021-02-14-heavypass%2f&t=Heaviest%20Password%20Generator">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  Baris Goral 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+
+
+</html>

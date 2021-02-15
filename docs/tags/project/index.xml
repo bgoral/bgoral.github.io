@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Life on Distributed Thoughts</title>
-    <link>https://blog.ritimgitar.com/categories/life/</link>
-    <description>Recent content in Life on Distributed Thoughts</description>
+    <title>Project on Distributed Thoughts</title>
+    <link>https://blog.ritimgitar.com/tags/project/</link>
+    <description>Recent content in Project on Distributed Thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
     <lastBuildDate>Mon, 15 Feb 2021 12:07:19 +0100</lastBuildDate>
     
-	<atom:link href="https://blog.ritimgitar.com/categories/life/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ritimgitar.com/tags/project/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       
       <guid>https://blog.ritimgitar.com/posts/2021-02-14-heavypass/</guid>
       <description>HeavyPass I also think the future of authentication will be password-less link. Although we are very close to this future, we are not there yet. Still, more or less all of the applications require some sort of password, but enhancing passwords with some additional validation (Multi Factor Authentication) like SMS, Authenticator Apps, Biometric scanning etc. In addition to that, we are being forced to change passwords after some time and most of the time not allowed to use one of the last 3 passwords.</description>
-    </item>
-    
-    <item>
-      <title>Fundamentals</title>
-      <link>https://blog.ritimgitar.com/posts/2021-01-07-fundamentals/</link>
-      <pubDate>Thu, 07 Jan 2021 09:00:19 +0100</pubDate>
-      
-      <guid>https://blog.ritimgitar.com/posts/2021-01-07-fundamentals/</guid>
-      <description>I restarted this blog to go back, remind and remember the fundamentals that brought me here. Fundamentals are the compass that keeps mind and reality together. Joel Goldberg, 45 years experienced software engineering veteran wrote a great article about basics. I put here to remind and remember.
- Focus on the Fundamentals Technology constantly changes, but some fundamental approaches to software development transcend these trends. Here are six fundamentals that will continue to be relevant for a long time.</description>
     </item>
     
   </channel>

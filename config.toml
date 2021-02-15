@@ -32,7 +32,7 @@ weight = 3
   mainSection = "posts" # your main section
   tagsOverview = true
   showAllPostsOnHomePage = true # default
-  postsOnHomePage = 5 # this option will be ignored if showAllPostsOnHomePage is set to true
+ # postsOnHomePage = 5 # this option will be ignored if showAllPostsOnHomePage is set to true
   dateFormat = "2006-01-02" # default
   css = ["css/custom.css"]
 

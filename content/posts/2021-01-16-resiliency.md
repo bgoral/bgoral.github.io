@@ -6,7 +6,6 @@ categories:
 - Architecture
 tags:
 - Microservices
-- Cloud
 ---
 In the reactive manifesto resilient systems described as: 
 
