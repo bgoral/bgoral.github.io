@@ -16,7 +16,7 @@ The idea behind [HeavyPass][4] is based on [Passphrase][5].
 > Passphrases are theoretically stronger, and so should make a better choice in these cases. First, they usually are (and always should be) much longer —20 to 30 characters or more is typical— making some kinds of brute force attacks entirely impractical. 
 
 
-### The idea behind HeavyPass 
+### Why HeavyPass?
 
 If you are a Heavy Metal fan, remember songs and lyrics and can play songs with your [air guitar][6]. [HeavyPass][4] is an application for you. Because you can not remember passwords but know all of the lyrics of [Black Album][7] by heart. 
 
