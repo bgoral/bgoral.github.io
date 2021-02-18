@@ -18,7 +18,7 @@ The idea behind [HeavyPass][4] is based on [Passphrase][5].
 
 ### Why HeavyPass?
 
-If you are a Heavy Metal fan, remember songs and lyrics and can play songs with your [air guitar][6]. [HeavyPass][4] is an application for you. Because you can not remember passwords but know all of the lyrics of [Black Album][7] by heart. 
+If you are a Heavy Metal fan, remember songs and lyrics and can play songs with your [air guitar][6]. [HeavyPass][4] is an application for you. 
 
 
 ### The tech stack
@@ -31,9 +31,9 @@ If you are a Heavy Metal fan, remember songs and lyrics and can play songs with 
 
 ### Challenges and highlights
 
-- Asynchronous programming brings an overhead on debugging and once needs to focus a lot on concurrency and parallelism. This was my first challenge when trying to extract heavy metal albums from the web. Promises helped a lot but also lack of IP rate filtering. 
+- Asynchronous programming brings an overhead on debugging and once needs to focus a lot on concurrency and parallelism. This was my first challenge when trying to extract heavy metal albums from the web. "Promise" concept helped a lot but also lack of security in web sites and IP rate filtering. 
 
-- When you have roots in pure CSS and JavaScript, the learning curve of ReactJS is lesser but still unable to understand the requirement for this complex build and debug toolchain. Even after I removed all unrequired references, my "node_modules" folder is around 250MB. I hope some Nodejs enthusiasts are as of now building solutions for this. I also want to mention the amount of energy spent during the project build and debugging. 
+- When you have roots in pure CSS and JavaScript, the learning curve of ReactJS is lesser but still unable to understand the requirement for this complex build and debug toolchain. Even after I removed all unrequired references, my "node_modules" folder is around 250MB. I hope some Nodejs enthusiasts are as of now building solutions for this. Nodejs is not green at all and I will measure the amount of energy spent during the project build and debugging and deployment later. 
 
 - [Unsplash][8] by beautifully opening their random image [API][9].
 
