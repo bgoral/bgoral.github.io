@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
-    <lastBuildDate>Mon, 15 Feb 2021 12:07:19 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 07 Mar 2021 12:07:19 +0100</lastBuildDate>
     
 	<atom:link href="https://blog.ritimgitar.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Future</title>
+      <link>https://blog.ritimgitar.com/tags/future/</link>
+      <pubDate>Sun, 07 Mar 2021 12:07:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/tags/future/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IPFS</title>
+      <link>https://blog.ritimgitar.com/tags/ipfs/</link>
+      <pubDate>Sun, 07 Mar 2021 12:07:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/tags/ipfs/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Project</title>

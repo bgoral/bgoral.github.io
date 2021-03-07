@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
-    <lastBuildDate>Mon, 15 Feb 2021 12:07:19 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 07 Mar 2021 12:07:19 +0100</lastBuildDate>
     
 	<atom:link href="https://blog.ritimgitar.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Distributed</title>
+      <link>https://blog.ritimgitar.com/categories/distributed/</link>
+      <pubDate>Sun, 07 Mar 2021 12:07:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/categories/distributed/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Future</title>
+      <link>https://blog.ritimgitar.com/categories/future/</link>
+      <pubDate>Sun, 07 Mar 2021 12:07:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/categories/future/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IPFS</title>
+      <link>https://blog.ritimgitar.com/categories/ipfs/</link>
+      <pubDate>Sun, 07 Mar 2021 12:07:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/categories/ipfs/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Life</title>
