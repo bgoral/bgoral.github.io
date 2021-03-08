@@ -182,7 +182,15 @@ if (!doNotTrack) {
 
     </div>
     <div id="toc">
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#what-is-dapr">What is Dapr?</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#installation-of-libpostal">Installation of libpostal</a></li>
+<li><a href="#address-parser-service">Address Parser Service</a></li>
+<li><a href="#what-are-the-benefits-and-common-capabilities-of-dapr">What are the benefits and common capabilities of dapr</a></li>
+</ul>
+</nav>
     </div>
   </span>
 </div>
@@ -226,55 +234,62 @@ if (!doNotTrack) {
 
   
     <div class="content" itemprop="articleBody">
-      <h1 id="what-is-dapr">What is Dapr?</h1>
+      
+
+<h1 id="what-is-dapr">What is Dapr?</h1>
+
 <blockquote>
 <p>Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks.</p>
 </blockquote>
-<p><img src="../../dapr.png" alt="Dapr" title="Dapr Architecture"></p>
+
+<p><img src="../../dapr.png" alt="Dapr" title="Dapr Architecture" /></p>
+
 <p>For me, this statement is definition of a remarkable modern solution to many complexities so I wanted to try and built a geocoding service using libpostal integrated to dapr sidecar. My goal is not to write things that you can find in documentations or totally expired books. Instead, I want to share my experience about building a microservice for a machine learning model.</p>
+
 <p>Why libpostal, because I was planning to write a tool using machine learning to parse and segment written addresses. This is a problem especially in countries like Turkey that there is no numeric address systems available. I came across with libpostal and found it beautiful and extendable.</p>
+
 <h1 id="installation">Installation</h1>
-<p>My base setup is</p>
-<ul>
-<li>WSL2 / Ubuntu 20.04</li>
-<li>Docker for Windows WSL2 integrated</li>
-<li>Visual Studio Code
-<ul>
-<li>Remote WSL</li>
-<li>Remote Containers</li>
-<li>Docker</li>
-</ul>
-</li>
-<li>Terminal</li>
-</ul>
+
+<p>My base setup is
+- WSL2 / Ubuntu 20.04
+- Docker for Windows WSL2 integrated
+- Visual Studio Code
+    - Remote WSL
+    - Remote Containers
+    - Docker
+- Terminal</p>
+
 <p>To install dapr there are 2 different methods:</p>
 <pre><code># From Dapr Documentation 
-wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash
-</code></pre><p>Another way is to download the release package manually</p>
+wget -q https://raw.githubusercontent.com/dapr/cli/master/install/install.sh -O - | /bin/bash</code></pre>
+<p>Another way is to download the release package manually</p>
 <pre><code># From Dapr Documentation 
 wget -q https://github.com/dapr/cli/releases/download/v1.0.0-rc.3/dapr_linux_amd64.tar.gz
 
 tar -zxfv dapr_linux_amd64.tar.gz
 cd dapr_linux_amd64
-sudo dapr init
-</code></pre><p>If you are having  no issue with initialization of dapr you should see</p>
+sudo dapr init</code></pre>
+<p>If you are having  no issue with initialization of dapr you should see</p>
 <pre><code>Making the jump to hyperspace...
 Downloading binaries and setting up components...
-Success! Dapr is up and running
-</code></pre><p>But unfortunately I had a couple of problems</p>
+Success! Dapr is up and running</code></pre>
+<p>But unfortunately I had a couple of problems</p>
+
 <ul>
 <li>Docker needs to be installed and WSL2 integration needs to be enabled before installation of dapr</li>
 <li>You need to &ldquo;sudo&rdquo; for initialization</li>
 <li>If during the <strong>init</strong>, command freezes; Docker restart or Windows restart solved my issues.</li>
 </ul>
+
 <p>To check of dapr is installed or not;</p>
-<pre><code>dapr --version
-</code></pre><p>In this article I not going to describe kubernetes integration, but to enable locally, development cluster in Docker for windows needs to be enabled or with Minicube. Minicube installation in Windows is not as straightforward as Docker. Independent from advantages and maturity of solutions I recommend Docker + kubernetes enabled for development and testing.</p>
+<pre><code>dapr --version</code></pre>
+<p>In this article I not going to describe kubernetes integration, but to enable locally, development cluster in Docker for windows needs to be enabled or with Minicube. Minicube installation in Windows is not as straightforward as Docker. Independent from advantages and maturity of solutions I recommend Docker + kubernetes enabled for development and testing.</p>
 <pre><code>#to enable kubernetes
 dapr init --kubernetes
 #to see status
-dapr status -k
-</code></pre><h1 id="installation-of-libpostal">Installation of libpostal</h1>
+dapr status -k</code></pre>
+<h1 id="installation-of-libpostal">Installation of libpostal</h1>
+
 <p>To install libpostal;</p>
 <pre><code>sudo apt-get install curl autoconf automake libtool pkg-config
 
@@ -288,10 +303,11 @@ make
 sudo make install
 
 # Recommended from Documentation
-sudo ldconfig
-</code></pre><p>For the go bindings</p>
-<pre><code>pip install postal
-</code></pre><p>Unfortunately this installation created some problems. To test my code I switched to 18.04.5 LTS.</p>
+sudo ldconfig</code></pre>
+<p>For the go bindings</p>
+<pre><code>pip install postal</code></pre>
+<p>Unfortunately this installation created some problems. To test my code I switched to 18.04.5 LTS.</p>
+
 <h1 id="address-parser-service">Address Parser Service</h1>
 <pre><code>from postal.parser import parse_address
 import cherrypy
@@ -304,19 +320,22 @@ class adrsvc(object):
         adrstr=cherrypy.request.json
         return parse_address(adrstr)
 
-if __name__ == '__main__':
-   config = {'server.socket_host': '0.0.0.0'}
+if __name__ == &#39;__main__&#39;:
+   config = {&#39;server.socket_host&#39;: &#39;0.0.0.0&#39;}
    cherrypy.config.update(config)
-   cherrypy.quickstart(adrsvc())
+   cherrypy.quickstart(adrsvc())</code></pre>
+<p>To attach to a <strong>dapr</strong> sidecar;</p>
+<pre><code>dapr run --app-id adrsvc --app-port 8088 --dapr-http-port 8089 python adrsvc.py</code></pre>
+<h1 id="what-are-the-benefits-and-common-capabilities-of-dapr">What are the benefits and common capabilities of dapr</h1>
 
-</code></pre><p>To attach to a <strong>dapr</strong> sidecar;</p>
-<pre><code>dapr run --app-id adrsvc --app-port 8088 --dapr-http-port 8089 python adrsvc.py
-</code></pre><h1 id="what-are-the-benefits-and-common-capabilities-of-dapr">What are the benefits and common capabilities of dapr</h1>
-<p><img src="../../daprbb.png" alt="Dapr" title="Dapr Building Blocks"></p>
+<p><img src="../../daprbb.png" alt="Dapr" title="Dapr Building Blocks" /></p>
+
 <p>Most important capability apart from the functionalities above is; Dapr offers a unified programming model that delivers capabilities through a standardized HTTP/gRPC protocol.</p>
+
 <blockquote>
 <p>gRPC is a modern, high-performance framework that evolves the age-old remote procedure call (RPC) protocol. At the application level, gRPC streamlines messaging between clients and back-end services. Originating from Google, gRPC is open source and part of the Cloud Native Computing Foundation (CNCF) ecosystem of cloud-native offerings. CNCF considers gRPC an incubating project.</p>
 </blockquote>
+
 <p>There are more to learn about dapr for me. I think e2e dapr capabilities are compressed version of various paradigms of today cloud computing and a must have, must learn and use in modern application development scenarios.</p>
 
     </div>
@@ -345,7 +364,15 @@ if __name__ == '__main__':
     </div>
 
     <div id="toc-footer" style="display: none">
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+<ul>
+<li><a href="#what-is-dapr">What is Dapr?</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#installation-of-libpostal">Installation of libpostal</a></li>
+<li><a href="#address-parser-service">Address Parser Service</a></li>
+<li><a href="#what-are-the-benefits-and-common-capabilities-of-dapr">What are the benefits and common capabilities of dapr</a></li>
+</ul>
+</nav>
     </div>
 
     <div id="share-footer" style="display: none">

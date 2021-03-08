@@ -181,17 +181,19 @@ if (!doNotTrack) {
     </div>
     <div id="toc">
       <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heavypass">HeavyPass</a>
-      <ul>
-        <li><a href="#why-heavypass">Why HeavyPass?</a></li>
-        <li><a href="#the-tech-stack">The tech stack</a></li>
-        <li><a href="#challenges-and-highlights">Challenges and highlights</a></li>
-        <li><a href="#todos">Todo&rsquo;s</a></li>
-        <li><a href="#long-live-heavy-metal"><em><strong>\Long Live Heavy Metal/</strong></em></a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#heavypass">HeavyPass</a>
+<ul>
+<li><a href="#why-heavypass">Why HeavyPass?</a></li>
+<li><a href="#the-tech-stack">The tech stack</a></li>
+<li><a href="#challenges-and-highlights">Challenges and highlights</a></li>
+<li><a href="#todo-s">Todo&rsquo;s</a></li>
+<li><a href="#long-live-heavy-metal"><strong><em>\Long Live Heavy Metal/</em></strong></a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
     </div>
   </span>
@@ -233,41 +235,45 @@ if (!doNotTrack) {
 
   
     <div class="content" itemprop="articleBody">
-      <h2 id="heavypass">HeavyPass</h2>
-<p>I also think the future of authentication will be password-less <a href="https://www.darkreading.com/endpoint/why-the-future-is-passwordless/d/d-id/1339530" title="Future is Passwrodlesss">link</a>. Although we are very close to this future, we are not there yet. Still, more or less all of the applications require some sort of password, but enhancing passwords with some additional validation (<a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" title="Multi-Factor Authentication">Multi Factor Authentication</a>) like SMS, Authenticator Apps, Biometric scanning etc. In addition to that, we are being forced to change passwords after some time and most of the time not allowed to use one of the last 3 passwords. These practices are required because there are people continuously trying to hack your accounts, why? I think this will take us to a philosophical discussion about hackers and hacking. I prefer to be as described in <a href="https://www.goodreads.com/book/show/41793.Hackers_Painters" title="Hackers and Painters">Hackers and Painters</a>. Under these circumstances; we, humble human beings continue to forget passwords and tending to use crackable, memorable and short passwords. I built <a href="https://www.heavypass.com" title="HeavyPass">HeavyPass</a> to generate memorable and strong (+ \Heavy/) passwords.</p>
-<p>The idea behind <a href="https://www.heavypass.com" title="HeavyPass">HeavyPass</a> is based on <a href="https://en.wikipedia.org/wiki/Passphrase" title="Passphrase">Passphrase</a>.</p>
-<blockquote>
-<p>Passphrases are theoretically stronger, and so should make a better choice in these cases. First, they usually are (and always should be) much longer —20 to 30 characters or more is typical— making some kinds of brute force attacks entirely impractical.</p>
-</blockquote>
+      
+
+<h2 id="heavypass">HeavyPass</h2>
+
+<p>I also think the future of authentication will be password-less <a href="https://www.darkreading.com/endpoint/why-the-future-is-passwordless/d/d-id/1339530" title="Future is Passwrodlesss" target="_blank">link</a>. Although we are very close to this future, we are not there yet. Still, more or less all of the applications require some sort of password, but enhancing passwords with some additional validation (<a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" title="Multi-Factor Authentication" target="_blank">Multi Factor Authentication</a>) like SMS, Authenticator Apps, Biometric scanning etc. In addition to that, we are being forced to change passwords after some time and most of the time not allowed to use one of the last 3 passwords. These practices are required because there are people continuously trying to hack your accounts, why? I think this will take us to a philosophical discussion about hackers and hacking. I prefer to be as described in <a href="https://www.goodreads.com/book/show/41793.Hackers_Painters" title="Hackers and Painters" target="_blank">Hackers and Painters</a>. Under these circumstances; we, humble human beings continue to forget passwords and tending to use crackable, memorable and short passwords. I built <a href="https://www.heavypass.com" title="HeavyPass" target="_blank">HeavyPass</a> to generate memorable and strong (+ \Heavy/) passwords.</p>
+
+<p>The idea behind <a href="https://www.heavypass.com" title="HeavyPass" target="_blank">HeavyPass</a> is based on <a href="https://en.wikipedia.org/wiki/Passphrase" title="Passphrase" target="_blank">Passphrase</a>.
+&gt; Passphrases are theoretically stronger, and so should make a better choice in these cases. First, they usually are (and always should be) much longer —20 to 30 characters or more is typical— making some kinds of brute force attacks entirely impractical.</p>
+
 <h3 id="why-heavypass">Why HeavyPass?</h3>
-<p>If you are a Heavy Metal fan, remember songs and lyrics and can play songs with your <a href="https://www.merriam-webster.com/dictionary/air%20guitar" title="Air Guitar">air guitar</a>. <a href="https://www.heavypass.com" title="HeavyPass">HeavyPass</a> is an application for you.</p>
+
+<p>If you are a Heavy Metal fan, remember songs and lyrics and can play songs with your <a href="https://www.merriam-webster.com/dictionary/air%20guitar" title="Air Guitar" target="_blank">air guitar</a>. <a href="https://www.heavypass.com" title="HeavyPass" target="_blank">HeavyPass</a> is an application for you.</p>
+
 <h3 id="the-tech-stack">The tech stack</h3>
+
 <ul>
 <li>Backend : ASP .Net Core</li>
-<li>Frontend : React + Semantic UI, <a href="https://unsplash.com/" title="Unsplash">Unsplash</a></li>
+<li>Frontend : React + Semantic UI, <a href="https://unsplash.com/" title="Unsplash" target="_blank">Unsplash</a></li>
 <li>Database : Mongo DB - Atlas</li>
 <li>Data Collecting : Nodejs, cherryio</li>
 <li>Platform : Heroku</li>
 </ul>
+
 <h3 id="challenges-and-highlights">Challenges and highlights</h3>
+
 <ul>
-<li>
-<p>Asynchronous programming brings an overhead on debugging and once needs to focus a lot on concurrency and parallelism. This was my first challenge when trying to extract heavy metal albums from the web. &ldquo;Promise&rdquo; concept helped a lot but also lack of security in web sites and IP rate filtering.</p>
-</li>
-<li>
-<p>When you have roots in pure CSS and JavaScript, the learning curve of ReactJS is lesser but still unable to understand the requirement for this complex build and debug toolchain. Even after I removed all unrequired references, my &ldquo;node_modules&rdquo; folder is around 250MB. I hope some Nodejs enthusiasts are as of now building solutions for this. Nodejs is not green at all and I will measure the amount of energy spent during the project build and debugging and deployment later.</p>
-</li>
-<li>
-<p><a href="https://unsplash.com/" title="Unsplash">Unsplash</a> by beautifully opening their random image <a href="https://source.unsplash.com/" title="Unsplash Random API">API</a>.</p>
-</li>
-<li>
-<p>I was not planning to use MongoDB. In the beginning, I started with PostgreSQL (because I am a Fanboy). I was planning to use Azure App services and PaaS PostgreSQL. When I see the cost statistics, I decided to move to more developer-friendly options. For such a frontend scenario, MongoDB is one of the best options and Atlas is providing a great free startup option. I had 0 issues.</p>
-</li>
-<li>
-<p><a href="https://heroku.com" title="Heroku">Heroku</a> is a superior platform if you are a developer just want to experiment with your ideas in a battle-tested environment in a technology you like with low cost or no cost. I started with the developer account completed the application, deployed without any issue. I did have 0 issues. But If you want to run .Net, the platform requires familiarity with Docker builds.</p>
-</li>
+<li><p>Asynchronous programming brings an overhead on debugging and once needs to focus a lot on concurrency and parallelism. This was my first challenge when trying to extract heavy metal albums from the web. &ldquo;Promise&rdquo; concept helped a lot but also lack of security in web sites and IP rate filtering.</p></li>
+
+<li><p>When you have roots in pure CSS and JavaScript, the learning curve of ReactJS is lesser but still unable to understand the requirement for this complex build and debug toolchain. Even after I removed all unrequired references, my &ldquo;node_modules&rdquo; folder is around 250MB. I hope some Nodejs enthusiasts are as of now building solutions for this. Nodejs is not green at all and I will measure the amount of energy spent during the project build and debugging and deployment later.</p></li>
+
+<li><p><a href="https://unsplash.com/" title="Unsplash" target="_blank">Unsplash</a> by beautifully opening their random image <a href="https://source.unsplash.com/" title="Unsplash Random API" target="_blank">API</a>.</p></li>
+
+<li><p>I was not planning to use MongoDB. In the beginning, I started with PostgreSQL (because I am a Fanboy). I was planning to use Azure App services and PaaS PostgreSQL. When I see the cost statistics, I decided to move to more developer-friendly options. For such a frontend scenario, MongoDB is one of the best options and Atlas is providing a great free startup option. I had 0 issues.</p></li>
+
+<li><p><a href="https://heroku.com" title="Heroku" target="_blank">Heroku</a> is a superior platform if you are a developer just want to experiment with your ideas in a battle-tested environment in a technology you like with low cost or no cost. I started with the developer account completed the application, deployed without any issue. I did have 0 issues. But If you want to run .Net, the platform requires familiarity with Docker builds.</p></li>
 </ul>
-<h3 id="todos">Todo&rsquo;s</h3>
+
+<h3 id="todo-s">Todo&rsquo;s</h3>
+
 <ul>
 <li>Publish the codes of frontend,</li>
 <li>After enhancing the security, publish the full codebase</li>
@@ -275,7 +281,8 @@ if (!doNotTrack) {
 <li>More user-friendly UI</li>
 <li>Offline Mobile Application</li>
 </ul>
-<h3 id="long-live-heavy-metal"><em><strong>\Long Live Heavy Metal/</strong></em></h3>
+
+<h3 id="long-live-heavy-metal"><strong><em>\Long Live Heavy Metal/</em></strong></h3>
 
     </div>
   </article>
@@ -304,17 +311,19 @@ if (!doNotTrack) {
 
     <div id="toc-footer" style="display: none">
       <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heavypass">HeavyPass</a>
-      <ul>
-        <li><a href="#why-heavypass">Why HeavyPass?</a></li>
-        <li><a href="#the-tech-stack">The tech stack</a></li>
-        <li><a href="#challenges-and-highlights">Challenges and highlights</a></li>
-        <li><a href="#todos">Todo&rsquo;s</a></li>
-        <li><a href="#long-live-heavy-metal"><em><strong>\Long Live Heavy Metal/</strong></em></a></li>
-      </ul>
-    </li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#heavypass">HeavyPass</a>
+<ul>
+<li><a href="#why-heavypass">Why HeavyPass?</a></li>
+<li><a href="#the-tech-stack">The tech stack</a></li>
+<li><a href="#challenges-and-highlights">Challenges and highlights</a></li>
+<li><a href="#todo-s">Todo&rsquo;s</a></li>
+<li><a href="#long-live-heavy-metal"><strong><em>\Long Live Heavy Metal/</em></strong></a></li>
+</ul></li>
+</ul></li>
+</ul>
 </nav>
     </div>
 

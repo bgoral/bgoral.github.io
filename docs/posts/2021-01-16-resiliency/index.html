@@ -185,17 +185,19 @@ if (!doNotTrack) {
     </div>
     <div id="toc">
       <nav id="TableOfContents">
-  <ul>
-    <li><a href="#communication--messaging">Communication / Messaging</a></li>
-    <li><a href="#common-design-patterns-and-principles">Common Design Patterns and Principles</a>
-      <ul>
-        <li><a href="#specific-recommendations-from-cloud-providers">Specific Recommendations from Cloud Providers</a></li>
-      </ul>
-    </li>
-    <li><a href="#microservices-network-resiliency--service-mesh">Microservices Network Resiliency &gt; Service Mesh</a></li>
-    <li><a href="#application-focus-resiliency--dapr">Application Focus Resiliency &gt; Dapr</a></li>
-    <li><a href="#additionally">Additionally</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#communication-messaging">Communication / Messaging</a></li>
+<li><a href="#common-design-patterns-and-principles">Common Design Patterns and Principles</a>
+<ul>
+<li><a href="#specific-recommendations-from-cloud-providers">Specific Recommendations from Cloud Providers</a></li>
+</ul></li>
+<li><a href="#microservices-network-resiliency-service-mesh">Microservices Network Resiliency &gt; Service Mesh</a></li>
+<li><a href="#application-focus-resiliency-dapr">Application Focus Resiliency &gt; Dapr</a></li>
+<li><a href="#additionally">Additionally</a></li>
+</ul></li>
+</ul>
 </nav>
     </div>
   </span>
@@ -237,11 +239,16 @@ if (!doNotTrack) {
 
   
     <div class="content" itemprop="articleBody">
-      <p>In the reactive manifesto resilient systems described as:</p>
+      
+
+<p>In the reactive manifesto resilient systems described as:</p>
+
 <blockquote>
-<p>Resilient: The system stays responsive in the face of failure. This applies not only to highly-available, mission-critical systems — any system that is not resilient will be unresponsive after a failure. <a href="https://www.reactivemanifesto.org/" title="Reactive Manifesto">Link</a></p>
+<p>Resilient: The system stays responsive in the face of failure. This applies not only to highly-available, mission-critical systems — any system that is not resilient will be unresponsive after a failure. <a href="https://www.reactivemanifesto.org/" title="Reactive Manifesto" target="_blank">Link</a></p>
 </blockquote>
+
 <p>Although there is a kind of philosophical manifesto available written/signed by builders, I believe, the expectation from the writers of this manifesto was always to build resilient things under chaos, uncertainty and continuous change. Some examples may be;</p>
+
 <ul>
 <li>New business area/expansion</li>
 <li>Cloud provider update/decommission/change certain behavior or API</li>
@@ -251,91 +258,109 @@ if (!doNotTrack) {
 <li>Covid-19</li>
 <li>Innovation</li>
 </ul>
-<h2 id="communication--messaging">Communication / Messaging</h2>
+
+<h2 id="communication-messaging">Communication / Messaging</h2>
+
 <p>Maybe it&rsquo;s boring but when it comes to describing resiliency we need to talk about the <strong>semantics of a message delivery mechanism</strong>. There are three basic categories:</p>
+
 <ul>
-<li>
-<p><strong>at-most-once</strong>: messages may be delivered or messages may be lost.</p>
-<p>Cheapest—highest performance, least implementation overhead—because it can be done in a fire-and-forget fashion without keeping state at the sending end or in the transport mechanism.</p>
-</li>
-<li>
-<p><strong>at-least-once</strong>: messages will be delivered but messages may be duplicated.</p>
-<p>Requires <strong>retries</strong> to counter transport losses, which means keeping state at the sending end and having an acknowledgement mechanism at the receiving end</p>
-</li>
-<li>
-<p><strong>exactly-once</strong>: the message can neither be lost nor duplicated, will be delivered as requested.</p>
+<li><p><strong>at-most-once</strong>: messages may be delivered or messages may be lost.</p>
+
+<p>Cheapest—highest performance, least implementation overhead—because it can be done in a fire-and-forget fashion without keeping state at the sending end or in the transport mechanism.</p></li>
+
+<li><p><strong>at-least-once</strong>: messages will be delivered but messages may be duplicated.</p>
+
+<p>Requires <strong>retries</strong> to counter transport losses, which means keeping state at the sending end and having an acknowledgement mechanism at the receiving end</p></li>
+
+<li><p><strong>exactly-once</strong>: the message can neither be lost nor duplicated, will be delivered as requested.</p>
+
 <p><strong>Most expensive</strong>—and has consequently <strong>worst performance</strong> —because in addition to the <strong>at-least-once</strong>, state to be kept at the receiving end to filter out duplicate deliveries.</p>
+
 <p>In mission-critical environments like trading/banking /healthcare, etc. understanding delivery semantic is extremely important. Most of the time business teams request guaranteed delivery and order ( <strong>exactly-once</strong>). But guaranteed-delivery is most efficient if it also implemented in business level;</p>
+
 <blockquote>
 <p>Stating that it is important on the business level that every message is received exactly-once like it is in order processing, means that every message constitutes a unique business transaction. Like with in-order processing, WSRM (or its competitors) guarantees exactly-once delivery by attaching unique numbers to messages, acknowledging receipt, and possibly resending or duplicate removal.</p>
-</blockquote>
-<blockquote>
-<p>If reliability is important on the business level, do it on the business level. A Reliable Messaging layer can handle only generic logic, but that&rsquo;s not what we want: we want business-specific logic for in-order and exactly-once processing. <a href="https://www.infoq.com/articles/no-reliable-messaging/" title="Nobody Needs Reliable Messaging">Article</a></p>
-</blockquote>
-</li>
+
+<p>If reliability is important on the business level, do it on the business level. A Reliable Messaging layer can handle only generic logic, but that&rsquo;s not what we want: we want business-specific logic for in-order and exactly-once processing. <a href="https://www.infoq.com/articles/no-reliable-messaging/" title="Nobody Needs Reliable Messaging" target="_blank">Article</a></p>
+</blockquote></li>
 </ul>
+
 <h2 id="common-design-patterns-and-principles">Common Design Patterns and Principles</h2>
+
 <p>There are common design patterns/principles per business case needs to considered together with delivery semantics.</p>
+
 <ul>
-<li>
-<p>Retry: Enables an application or a service to handle transient failures while connecting a service or network resource, by transparently retrying a failed operation. (<a href="https://github.com/Netflix/Hystrix" title="Hystrix">Hystrix</a>,<a href="https://github.com/resilience4j/resilience4j" title="Resilience4j">Resilience4j</a>,<a href="https://github.com/App-vNext/Polly" title="Polly">Polly</a>.<a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling" title="Transient Fault Application Block">Some History</a>)</p>
-</li>
-<li>
-<p>Circuit Breaker: This always seems me a complementary pattern to Retry. The scenario is Service signaling that it is becoming unhealthy and the circuit breaker then gives the service a chance to recover by throttling back the number of requests or rerouting them completely. Once the service gets recovered, the circuit breaker slowly ramps up requests to the service so as not to immediately overwhelm it and risk it becoming unhealthy again.</p>
+<li>Retry: Enables an application or a service to handle transient failures while connecting a service or network resource, by transparently retrying a failed operation. (<a href="https://github.com/Netflix/Hystrix" title="Hystrix" target="_blank">Hystrix</a>,<a href="https://github.com/resilience4j/resilience4j" title="Resilience4j" target="_blank">Resilience4j</a>,<a href="https://github.com/App-vNext/Polly" title="Polly" target="_blank">Polly</a>.<a href="https://docs.microsoft.com/en-us/aspnet/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling" title="Transient Fault Application Block" target="_blank">Some History</a>)</li>
+
+<li><p>Circuit Breaker: This always seems me a complementary pattern to Retry. The scenario is Service signaling that it is becoming unhealthy and the circuit breaker then gives the service a chance to recover by throttling back the number of requests or rerouting them completely. Once the service gets recovered, the circuit breaker slowly ramps up requests to the service so as not to immediately overwhelm it and risk it becoming unhealthy again.</p>
+
 <blockquote>
-<p>The Circuit Breaker pattern prevents an application from performing an operation that is likely to fail. (<a href="https://pragprog.com/titles/mnee2/release-it-second-edition/" title="Release It!">Release It!</a>)</p>
-</blockquote>
-<p>Circuit Breaker proxy is a state machine having 3 states (Open, Half-Open, Closed)</p>
-</li>
+<p>The Circuit Breaker pattern prevents an application from performing an operation that is likely to fail. (<a href="https://pragprog.com/titles/mnee2/release-it-second-edition/" title="Release It!" target="_blank">Release It!</a>)</p>
+</blockquote></li>
 </ul>
-<p><img src="../../cirbreaker.png" alt="Circiut Breaker"></p>
+
+<p>Circuit Breaker proxy is a state machine having 3 states (Open, Half-Open, Closed)</p>
+
+<p><img src="../../cirbreaker.png" alt="Circiut Breaker" /></p>
+
 <ul>
-<li>
-<p>Bulkhead Principle: In a ship &ldquo;Bulkheads&rdquo; prevents water to move from one side to another. The other term for Bulkhead is &ldquo;Retaining Wall&rdquo;. As a design principle, By partitioning our systems, we can keep a failure in one part of the system from destroying everything.</p>
-<p>In most of the resources <strong>Bulkhead</strong> recommended particularly with shared services models. Failures in service-oriented or microservice architectures can propagate very quickly. A of &ldquo;Chain Reaction&rdquo; can trigger a serious set of destructive events. Then you’d better put in some Bulkheads. One thing to consider is this may lead to less efficient use of resources.</p>
-</li>
-<li>
-<p>Fail Fast: The worst thing is slow failure responses and unnecessary usage of system resources. The principle says &ldquo;Verify integrity early and fast&rdquo;</p>
+<li><p>Bulkhead Principle: In a ship &ldquo;Bulkheads&rdquo; prevents water to move from one side to another. The other term for Bulkhead is &ldquo;Retaining Wall&rdquo;. As a design principle, By partitioning our systems, we can keep a failure in one part of the system from destroying everything.</p>
+
+<p>In most of the resources <strong>Bulkhead</strong> recommended particularly with shared services models. Failures in service-oriented or microservice architectures can propagate very quickly. A of &ldquo;Chain Reaction&rdquo; can trigger a serious set of destructive events. Then you’d better put in some Bulkheads. One thing to consider is this may lead to less efficient use of resources.</p></li>
+
+<li><p>Fail Fast: The worst thing is slow failure responses and unnecessary usage of system resources. The principle says &ldquo;Verify integrity early and fast&rdquo;</p>
+
 <ul>
 <li>Avoid slow responses and fail fast.</li>
 <li>Reserve resources, verify integration points early.</li>
 <li>Validate inputs as early as possible</li>
+</ul></li>
+
+<li><p>Cyber Security This article is not about cybersecurity resiliency, but systems need to be designed to be resilient under highly dynamic security threats. In covid-19 times one of the most hyped words was also resiliency and I believe will continue to be.</p></li>
 </ul>
-</li>
-<li>
-<p>Cyber Security This article is not about cybersecurity resiliency, but systems need to be designed to be resilient under highly dynamic security threats. In covid-19 times one of the most hyped words was also resiliency and I believe will continue to be.</p>
-</li>
-</ul>
+
 <h3 id="specific-recommendations-from-cloud-providers">Specific Recommendations from Cloud Providers</h3>
+
 <ul>
-<li>Microsoft recommended Patterns for application/service and network resiliency &gt; <a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/category/resiliency">https://docs.microsoft.com/en-us/azure/architecture/patterns/category/resiliency</a></li>
-<li>AWS Well-Architected Framework for mostly service and network resiliency &gt; <a href="https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/resiliency-and-the-components-of-reliability.html">https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/resiliency-and-the-components-of-reliability.html</a></li>
-<li>Google Cloud recommends certain tools for service and network resiliency &gt; <a href="https://cloud.google.com/solutions/scalable-and-resilient-apps#resilience_designing_to_withstand_failures">https://cloud.google.com/solutions/scalable-and-resilient-apps#resilience_designing_to_withstand_failures</a></li>
+<li>Microsoft recommended Patterns for application/service and network resiliency &gt; <a href="https://docs.microsoft.com/en-us/azure/architecture/patterns/category/resiliency" target="_blank">https://docs.microsoft.com/en-us/azure/architecture/patterns/category/resiliency</a><br /></li>
+<li>AWS Well-Architected Framework for mostly service and network resiliency &gt; <a href="https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/resiliency-and-the-components-of-reliability.html" target="_blank">https://docs.aws.amazon.com/wellarchitected/latest/reliability-pillar/resiliency-and-the-components-of-reliability.html</a></li>
+<li>Google Cloud recommends certain tools for service and network resiliency &gt; <a href="https://cloud.google.com/solutions/scalable-and-resilient-apps#resilience_designing_to_withstand_failures" target="_blank">https://cloud.google.com/solutions/scalable-and-resilient-apps#resilience_designing_to_withstand_failures</a></li>
 </ul>
-<h2 id="microservices-network-resiliency--service-mesh">Microservices Network Resiliency &gt; Service Mesh</h2>
+
+<h2 id="microservices-network-resiliency-service-mesh">Microservices Network Resiliency &gt; Service Mesh</h2>
+
 <p>A service mesh is the logical layer between services that adds additional capabilities like traffic control, service discovery, load balancing, <strong>resilience</strong>, observability, security, and so on. A service mesh allows applications to offload these capabilities from application-level libraries and allow developers to focus on differentiating business logic. Service Mesh primarily focuses on service-service communication resiliency.</p>
+
 <blockquote>
-<p>Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. <a href="https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh" title="Redhat Service Mesh">From Redhat</a></p>
+<p>Unlike other systems for managing this communication, a service mesh is a dedicated infrastructure layer built right into an app. <a href="https://www.redhat.com/en/topics/microservices/what-is-a-service-mesh" title="Redhat Service Mesh" target="_blank">From Redhat</a></p>
 </blockquote>
-<p>Service Mesh builds on top of &ldquo;Layer 5&rdquo;. There is also a great website (and company) dedicated to service meshes <a href="https://layer5.io/landscape" title="Layer 5">Layer5</a>. I won&rsquo;t dive into this in this post.</p>
-<p>Service Mesh architecture contains &ldquo;mostly&rdquo; 2 layers called planes:</p>
-<ul>
-<li>Control Plane</li>
-<li>Data Plane</li>
-</ul>
-<p><img src="../../istio.png" alt="Istio" title="Istio Architecture"></p>
-<h2 id="application-focus-resiliency--dapr">Application Focus Resiliency &gt; Dapr</h2>
+
+<p>Service Mesh builds on top of &ldquo;Layer 5&rdquo;. There is also a great website (and company) dedicated to service meshes <a href="https://layer5.io/landscape" title="Layer 5" target="_blank">Layer5</a>. I won&rsquo;t dive into this in this post.</p>
+
+<p>Service Mesh architecture contains &ldquo;mostly&rdquo; 2 layers called planes:
+- Control Plane
+- Data Plane</p>
+
+<p><img src="../../istio.png" alt="Istio" title="Istio Architecture" /></p>
+
+<h2 id="application-focus-resiliency-dapr">Application Focus Resiliency &gt; Dapr</h2>
+
 <p>In dapr documentation dapr described as ;</p>
+
 <blockquote>
 <p>Dapr is a portable, event-driven runtime that makes it easy for any developer to build resilient, stateless and stateful applications that run on the cloud and edge and embraces the diversity of languages and developer frameworks.</p>
 </blockquote>
-<p><img src="../../dapr.png" alt="Dapr" title="Dapr Architecture"></p>
+
+<p><img src="../../dapr.png" alt="Dapr" title="Dapr Architecture" /></p>
+
 <h2 id="additionally">Additionally</h2>
+
 <ul>
-<li>Adaptive Resiliency concept &ndash;&gt; <a href="https://medium.com/@NetflixTechBlog/performance-under-load-3e6fa9a60581">https://medium.com/@NetflixTechBlog/performance-under-load-3e6fa9a60581</a></li>
-<li><a href="https://ballerina.io/">https://ballerina.io/</a> &ldquo;directly address the Fallacies of Distributed Computing as part of their application logic. This facilitates resilient, secure, performant network applications to be within every programmer’s reach.&rdquo;</li>
+<li>Adaptive Resiliency concept &ndash;&gt; <a href="https://medium.com/@NetflixTechBlog/performance-under-load-3e6fa9a60581" target="_blank">https://medium.com/@NetflixTechBlog/performance-under-load-3e6fa9a60581</a></li>
+<li><a href="https://ballerina.io/" target="_blank">https://ballerina.io/</a> &ldquo;directly address the Fallacies of Distributed Computing as part of their application logic. This facilitates resilient, secure, performant network applications to be within every programmer’s reach.&rdquo;</li>
 <li>Saga Pattern</li>
 </ul>
+
 <p>In my next post, I will share how to use dapr locally and with Azure AKS. Less talk, more code.</p>
 
     </div>
@@ -365,17 +390,19 @@ if (!doNotTrack) {
 
     <div id="toc-footer" style="display: none">
       <nav id="TableOfContents">
-  <ul>
-    <li><a href="#communication--messaging">Communication / Messaging</a></li>
-    <li><a href="#common-design-patterns-and-principles">Common Design Patterns and Principles</a>
-      <ul>
-        <li><a href="#specific-recommendations-from-cloud-providers">Specific Recommendations from Cloud Providers</a></li>
-      </ul>
-    </li>
-    <li><a href="#microservices-network-resiliency--service-mesh">Microservices Network Resiliency &gt; Service Mesh</a></li>
-    <li><a href="#application-focus-resiliency--dapr">Application Focus Resiliency &gt; Dapr</a></li>
-    <li><a href="#additionally">Additionally</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#communication-messaging">Communication / Messaging</a></li>
+<li><a href="#common-design-patterns-and-principles">Common Design Patterns and Principles</a>
+<ul>
+<li><a href="#specific-recommendations-from-cloud-providers">Specific Recommendations from Cloud Providers</a></li>
+</ul></li>
+<li><a href="#microservices-network-resiliency-service-mesh">Microservices Network Resiliency &gt; Service Mesh</a></li>
+<li><a href="#application-focus-resiliency-dapr">Application Focus Resiliency &gt; Dapr</a></li>
+<li><a href="#additionally">Additionally</a></li>
+</ul></li>
+</ul>
 </nav>
     </div>
 

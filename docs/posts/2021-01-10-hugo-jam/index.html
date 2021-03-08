@@ -181,14 +181,17 @@ if (!doNotTrack) {
     </div>
     <div id="toc">
       <nav id="TableOfContents">
-  <ul>
-    <li><a href="#what-is-my-stack">What is my stack?</a></li>
-    <li><a href="#why-hugo-and-how-to-install">Why Hugo and how to install?</a></li>
-    <li><a href="#configuration-of-github-repository-and-creating-hugo-site">Configuration of Github repository and creating Hugo site</a></li>
-    <li><a href="#theme-and-site-configuration">Theme and site configuration</a></li>
-    <li><a href="#how-to-create-a-post">How to create a post</a></li>
-    <li><a href="#how-to-publish">How to publish</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#what-is-my-stack">What is my stack?</a></li>
+<li><a href="#why-hugo-and-how-to-install">Why Hugo and how to install?</a></li>
+<li><a href="#configuration-of-github-repository-and-creating-hugo-site">Configuration of Github repository and creating Hugo site</a></li>
+<li><a href="#theme-and-site-configuration">Theme and site configuration</a></li>
+<li><a href="#how-to-create-a-post">How to create a post</a></li>
+<li><a href="#how-to-publish">How to publish</a></li>
+</ul></li>
+</ul>
 </nav>
     </div>
   </span>
@@ -239,69 +242,91 @@ if (!doNotTrack) {
 
   
     <div class="content" itemprop="articleBody">
-      <p>In 2013, I was working as a technical lead for the company website transformation project for an electric distribution company. The technology was preselected by the upper management (SharePoint) and the contract was already signed. I was going to assure the quality of delivery. The old website was also SharePoint and it was too expensive to scale and maintain. Of course, I am not going to mention about the cost of license, development and infrastructure of this new website but this was (probably today in many organizations) the situation more or less 10 years ago.</p>
+      
+
+<p>In 2013, I was working as a technical lead for the company website transformation project for an electric distribution company. The technology was preselected by the upper management (SharePoint) and the contract was already signed. I was going to assure the quality of delivery. The old website was also SharePoint and it was too expensive to scale and maintain. Of course, I am not going to mention about the cost of license, development and infrastructure of this new website but this was (probably today in many organizations) the situation more or less 10 years ago.</p>
+
 <p>In March 2015, the day started with a countrywide electricity blackout. During the one day long blackout, Sharepoint could not survive and crashed in 1 hour. One HTML file, in 3 servers, cache enabled, behind an NLB, <strong>survived</strong>. One mobile app having RabbitMQ backend also survived but I will tell this story later.</p>
-<p>The idea of static page generators was already there. Jekyll (and many others) was there since 2008. Now (probably) static page generators are the most secure, cost-efficient and scalable way of publishing things online. Of course, needs to be combined with different components (API&rsquo;s and SaaS services) for large scale requirements. This is also called <a href="https://jamstack.org/">JAM Stack</a>.</p>
-<p>That&rsquo;s why I built my blog with <a href="https://gohugo.io/">Hugo</a> and publish it via <a href="https://github.com/bgoral/bgoral.github.io">Github</a> using my GoDaddy domain.</p>
+
+<p>The idea of static page generators was already there. Jekyll (and many others) was there since 2008. Now (probably) static page generators are the most secure, cost-efficient and scalable way of publishing things online. Of course, needs to be combined with different components (API&rsquo;s and SaaS services) for large scale requirements. This is also called <a href="https://jamstack.org/" target="_blank">JAM Stack</a>.</p>
+
+<p>That&rsquo;s why I built my blog with <a href="https://gohugo.io/" target="_blank">Hugo</a> and publish it via <a href="https://github.com/bgoral/bgoral.github.io" target="_blank">Github</a> using my GoDaddy domain.</p>
+
 <h2 id="what-is-my-stack">What is my stack?</h2>
+
 <ul>
 <li>Windows 10</li>
-<li>WSL 2 / Ubuntu (<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Very straghtforward</a>)</li>
-<li>(new) Terminal (<a href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701#activetab=pivot:overviewtab">Windows Store</a> &gt; Get )</li>
+<li>WSL 2 / Ubuntu (<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10" target="_blank">Very straghtforward</a>)</li>
+<li>(new) Terminal (<a href="https://www.microsoft.com/en-us/p/windows-terminal/9n0dx20hk701#activetab=pivot:overviewtab" target="_blank">Windows Store</a> &gt; Get )</li>
 <li>A repository in github.com</li>
 <li>Vim</li>
 <li>Hugo</li>
 </ul>
+
 <h2 id="why-hugo-and-how-to-install">Why Hugo and how to install?</h2>
+
 <p>I was planning to use Jekyll, but configuration, package dependencies was too difficult for me to solve in WSL 2 environment. Probably there are solutions, but I did not want to lose my writing enthusiasm. I chose Hugo because it was written in go. I wanted to try and probably will write some custom plugins.</p>
+
 <p>After the installation of WSL2 please update the package index</p>
-<pre><code>apt get update
-</code></pre><p>For the installation of Hugo:</p>
-<pre><code>apt-get install hugo 
-</code></pre><p>That&rsquo;s it. You can start writing (Really !! ).</p>
+<pre><code>apt get update</code></pre>
+<p>For the installation of Hugo:</p>
+<pre><code>apt-get install hugo </code></pre>
+<p>That&rsquo;s it. You can start writing (Really !! ).</p>
+
 <h2 id="configuration-of-github-repository-and-creating-hugo-site">Configuration of Github repository and creating Hugo site</h2>
-<p>To publish your static website via Github, you need to have a repository named <strong>xxx .github.io</strong> and It has to be public. If you want a private repository, you need to pay for static website publish feature. My repository name is <a href="https://github.com/bgoral/bgoral.github.io">bgoral.github.io</a>.</p>
+
+<p>To publish your static website via Github, you need to have a repository named <strong>xxx .github.io</strong> and It has to be public. If you want a private repository, you need to pay for static website publish feature. My repository name is <a href="https://github.com/bgoral/bgoral.github.io" target="_blank">bgoral.github.io</a>.</p>
+
 <p>You can create your repository via command line but I preferred to create this particular repository from github.com. After I created the repository, cloned the repository and initiated my new website with Hugo executable:</p>
 <pre><code>git clone https://github.com/bgoral/bgoral.github.io.git
-hugo new site bgoral.github.io  
-</code></pre><h2 id="theme-and-site-configuration">Theme and site configuration</h2>
-<p>For my blog, I chose <a href="https://github.com/monkeyWzr/hugo-theme-cactus">Cactus Theme</a>. You can choose your theme among hundreds of other themes from <a href="https://themes.gohugo.io/">themes.gohugo.io</a>. To install <strong>Cactus</strong> to my newly created site:</p>
+hugo new site bgoral.github.io  </code></pre>
+<h2 id="theme-and-site-configuration">Theme and site configuration</h2>
+
+<p>For my blog, I chose <a href="https://github.com/monkeyWzr/hugo-theme-cactus" target="_blank">Cactus Theme</a>. You can choose your theme among hundreds of other themes from <a href="https://themes.gohugo.io/" target="_blank">themes.gohugo.io</a>. To install <strong>Cactus</strong> to my newly created site:</p>
 <pre><code>cd bgoral.github.io
-git clone https://github.com/monkeyWzr/hugo-theme-cactus.git themes/cactus
-</code></pre><p>In the site folder, there is a file named config.toml. In this file changed the theme to</p>
+git clone https://github.com/monkeyWzr/hugo-theme-cactus.git themes/cactus</code></pre>
+<p>In the site folder, there is a file named config.toml. In this file changed the theme to</p>
 <pre><code># config.toml
-theme = &quot;cactus&quot;
-</code></pre><p>Also changed some other configurations like colors, some text parameters. But this will depend on the theme you choose.  Please refer to your theme documentation.</p>
+theme = &#34;cactus&#34;</code></pre>
+<p>Also changed some other configurations like colors, some text parameters. But this will depend on the theme you choose.  Please refer to your theme documentation.</p>
+
 <p>And to test if this is working or not:</p>
 <pre><code>cd bgoral.github.io
-hugo server
-</code></pre><p>The site is accessible from <a href="http://localhost:1313/">http://localhost:1313/</a></p>
+hugo server</code></pre>
+<p>The site is accessible from <a href="http://localhost:1313/" target="_blank">http://localhost:1313/</a></p>
+
 <h2 id="how-to-create-a-post">How to create a post</h2>
+
 <p>I create posts manually under <strong>content/posts</strong> folder with datetime information:</p>
-<pre><code>vim content/posts/2021-01-10-hugo-jam.md
-</code></pre><p>Hugo is looking for some metadata at the beginning of the post.</p>
+<pre><code>vim content/posts/2021-01-10-hugo-jam.md</code></pre>
+<p>Hugo is looking for some metadata at the beginning of the post.</p>
 <pre><code>---
-title: &quot;JAM Stack - How I built this blog&quot;
+title: &#34;JAM Stack - How I built this blog&#34;
 date: 2021-01-10T11:18:19+01:00
 draft: false
 categories: Best Practises, Architecture
----
-</code></pre><p>Above is the metadata of this post.</p>
+---</code></pre>
+<p>Above is the metadata of this post.</p>
+
 <h2 id="how-to-publish">How to publish</h2>
+
 <p>The first step is to set Hugo <strong>&ldquo;publishDir&rdquo;</strong> as <strong>&ldquo;docs&rdquo;</strong> in the <strong>config.toml</strong>. This is for compliance and easy configuration. In GitHub pages documentation says;</p>
+
 <blockquote>
 <p>If you choose the /docs folder of any branch as your publishing source, GitHub Pages will read everything to publish your site, including the CNAME file, from the /docs folder. For example, when you edit your custom domain through the GitHub Pages settings, the custom domain will write to /docs/CNAME. For more information about CNAME files, see &ldquo;Managing a custom domain for your GitHub Pages site.&rdquo;</p>
 </blockquote>
 <pre><code># config.toml
-publishDir = &quot;docs&quot;
-</code></pre><p>Then configuration of the repository to enable GitHub pages. There is a section under repository settings. Below is my configuration. You do not need to change the default configuration. But if you have a custom domain like me, you need to do the necessary configuration from your domain provider control panel.</p>
-<p><img src="../../githubpages.jpg" alt="Distribution"></p>
+publishDir = &#34;docs&#34;</code></pre>
+<p>Then configuration of the repository to enable GitHub pages. There is a section under repository settings. Below is my configuration. You do not need to change the default configuration. But if you have a custom domain like me, you need to do the necessary configuration from your domain provider control panel.</p>
+
+<p><img src="../../githubpages.jpg" alt="Distribution" /></p>
+
 <p>Don&rsquo;t forget to push your changes to your repository.</p>
 <pre><code>hugo -D
 git add *
-git commit -m &quot;First Post&quot;
-git push -u origin main
-</code></pre><p>That&rsquo;s all. Now you have a fast, secure and free website, can handle a nationwide blackout or a hacker news front page.</p>
+git commit -m &#34;First Post&#34;
+git push -u origin main</code></pre>
+<p>That&rsquo;s all. Now you have a fast, secure and free website, can handle a nationwide blackout or a hacker news front page.</p>
 
     </div>
   </article>
@@ -330,14 +355,17 @@ git push -u origin main
 
     <div id="toc-footer" style="display: none">
       <nav id="TableOfContents">
-  <ul>
-    <li><a href="#what-is-my-stack">What is my stack?</a></li>
-    <li><a href="#why-hugo-and-how-to-install">Why Hugo and how to install?</a></li>
-    <li><a href="#configuration-of-github-repository-and-creating-hugo-site">Configuration of Github repository and creating Hugo site</a></li>
-    <li><a href="#theme-and-site-configuration">Theme and site configuration</a></li>
-    <li><a href="#how-to-create-a-post">How to create a post</a></li>
-    <li><a href="#how-to-publish">How to publish</a></li>
-  </ul>
+<ul>
+<li>
+<ul>
+<li><a href="#what-is-my-stack">What is my stack?</a></li>
+<li><a href="#why-hugo-and-how-to-install">Why Hugo and how to install?</a></li>
+<li><a href="#configuration-of-github-repository-and-creating-hugo-site">Configuration of Github repository and creating Hugo site</a></li>
+<li><a href="#theme-and-site-configuration">Theme and site configuration</a></li>
+<li><a href="#how-to-create-a-post">How to create a post</a></li>
+<li><a href="#how-to-publish">How to publish</a></li>
+</ul></li>
+</ul>
 </nav>
     </div>
 
