@@ -10,15 +10,16 @@ tags:
 
 ## HeavyPass
 
-I also think the future of authentication will be password-less [link][1]. Although we are very close to this future, we are not there yet. Still, more or less all of the applications require some sort of password, but enhancing passwords with some additional validation ([Multi Factor Authentication][2]) like SMS, Authenticator Apps, Biometric scanning etc. In addition to that, we are being forced to change passwords after some time and most of the time not allowed to use one of the last 3 passwords. These practices are required because there are people continuously trying to hack your accounts, why? I think this will take us to a philosophical discussion about hackers and hacking. I prefer to be as described in [Hackers and Painters][3]. Under these circumstances; we, humble human beings continue to forget passwords and tending to use crackable, memorable and short passwords. I built [HeavyPass][4] to generate memorable and strong (+ \Heavy/) passwords.
+I  think the future of authentication will be [passwordless][1]. We are very close to that future but not there yet. Still, most of the applications require username and passwords, but enhancing with additional validation methods ([Multi Factor Authentication][2]) like SMS, Authenticator Apps, Biometric scanning etc. In addition to that, users are being forced to change their passwords after some time and mostly not allowed to use one of the last 3 passwords. Under these circumstances; we, humble human beings continue to forget passwords and tending to use memorable, short and , crackable passwords. I built [HeavyPass][4] to generate memorable and strong (+ \Heavy/) passwords.
 
-The idea behind [HeavyPass][4] is based on [Passphrase][5]. 
+The idea behind [HeavyPass][4] is [Passphrases][5]. 
+
 > Passphrases are theoretically stronger, and so should make a better choice in these cases. First, they usually are (and always should be) much longer —20 to 30 characters or more is typical— making some kinds of brute force attacks entirely impractical. 
 
 
 ### Why HeavyPass?
 
-If you are a Heavy Metal fan, remember songs and lyrics and can play songs with your [air guitar][6]. [HeavyPass][4] is an application for you. 
+If you like Heavy Metal music, remember songs and lyrics [HeavyPass][4] specifically for you. 
 
 
 ### The tech stack
@@ -31,15 +32,15 @@ If you are a Heavy Metal fan, remember songs and lyrics and can play songs with 
 
 ### Challenges and highlights
 
-- Asynchronous programming brings an overhead on debugging and once needs to focus a lot on concurrency and parallelism. This was my first challenge when trying to extract heavy metal albums from the web. "Promise" concept helped a lot but also lack of security in web sites and IP rate filtering. 
+- Asynchronous programming brings an overhead on debugging and beware of concurrency and parallelism. "Promises" helped a lot but also lack of security and IP rate filtering. 
 
-- When you have roots in pure CSS and JavaScript, the learning curve of ReactJS is lesser but still unable to understand the requirement for this complex build and debug toolchain. Even after I removed all unrequired references, my "node_modules" folder is around 250MB. I hope some Nodejs enthusiasts are as of now building solutions for this. Nodejs is not green at all and I will measure the amount of energy spent during the project build and debugging and deployment later. 
+- When you have roots in pure CSS and JavaScript, learning ReactJS is relatively easy but I think build and debug toolchain is over complex. Even after I removed all unrequired references, my "node_modules" folder is appx. 250MB. Sorry but Nodejs is not green at all, wasting lots of unnecessary power. 
 
-- [Unsplash][8] by beautifully opening their random image [API][9].
+- Thanks to [Unsplash][8] by beautifully opening their random image [API][9].
 
-- I was not planning to use MongoDB. In the beginning, I started with PostgreSQL (because I am a Fanboy). I was planning to use Azure App services and PaaS PostgreSQL. When I see the cost statistics, I decided to move to more developer-friendly options. For such a frontend scenario, MongoDB is one of the best options and Atlas is providing a great free startup option. I had 0 issues. 
+- I was not planning to use MongoDB. I started with PostgreSQL (because I am a Fanboy). I tried to use Azure App services and PaaS PostgreSQL. After I see unexpected cost data, I decided to move to more hobbyist options. For such a frontend scenario, MongoDB is one of the best options and Atlas is providing a great free startup option. I had 0 issues. 
 
-- [Heroku][10] is a superior platform if you are a developer just want to experiment with your ideas in a battle-tested environment in a technology you like with low cost or no cost. I started with the developer account completed the application, deployed without any issue. I did have 0 issues. But If you want to run .Net, the platform requires familiarity with Docker builds.
+- [Heroku][10] is a superior platform if you are a developer and just want to experiment on your ideas in a battle-tested environment in a technology you like with low cost or no cost. I started with the developer account completed the application, deployed without any issue. If you want to run .Net, the platform requires familiarity with Docker builds.
 
 
 ### Todo's
