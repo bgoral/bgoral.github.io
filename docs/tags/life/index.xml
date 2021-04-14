@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
-    <lastBuildDate>Sun, 10 Jan 2021 11:18:19 +0100</lastBuildDate>
+    <lastBuildDate>Mon, 12 Apr 2021 12:07:19 +0100</lastBuildDate>
     
 	<atom:link href="https://blog.ritimgitar.com/tags/life/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Prioritization of Value over Power</title>
+      <link>https://blog.ritimgitar.com/posts/2021-04-12-power-or-value/</link>
+      <pubDate>Mon, 12 Apr 2021 12:07:19 +0100</pubDate>
+      
+      <guid>https://blog.ritimgitar.com/posts/2021-04-12-power-or-value/</guid>
+      <description>Power of Value Product oriented companies that exist and grow by generating value to their customers or potential customers are especially good at prioritizing what to ship and where to invest their energy. They collect sufficient enough data to estimate, validate and pivot their assumptions.
+But one can not observe this in government investments or most of the large enterprise companies that I have also been part of since 7 years.</description>
+    </item>
     
     <item>
       <title>JAM Stack - Hugo - Blackout</title>

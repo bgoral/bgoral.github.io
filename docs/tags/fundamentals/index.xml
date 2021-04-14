@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Fundamentals on Distributed Thoughts</title>
-    <link>https://blog.ritimgitar.com/categories/fundamentals/</link>
+    <link>https://blog.ritimgitar.com/tags/fundamentals/</link>
     <description>Recent content in Fundamentals on Distributed Thoughts</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>de-DE</language>
     <copyright>Baris Goral</copyright>
     <lastBuildDate>Mon, 12 Apr 2021 12:07:19 +0100</lastBuildDate>
     
-	<atom:link href="https://blog.ritimgitar.com/categories/fundamentals/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blog.ritimgitar.com/tags/fundamentals/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -20,16 +20,6 @@
       <guid>https://blog.ritimgitar.com/posts/2021-04-12-power-or-value/</guid>
       <description>Power of Value Product oriented companies that exist and grow by generating value to their customers or potential customers are especially good at prioritizing what to ship and where to invest their energy. They collect sufficient enough data to estimate, validate and pivot their assumptions.
 But one can not observe this in government investments or most of the large enterprise companies that I have also been part of since 7 years.</description>
-    </item>
-    
-    <item>
-      <title>Fundamentals</title>
-      <link>https://blog.ritimgitar.com/posts/2021-01-07-fundamentals/</link>
-      <pubDate>Thu, 07 Jan 2021 09:00:19 +0100</pubDate>
-      
-      <guid>https://blog.ritimgitar.com/posts/2021-01-07-fundamentals/</guid>
-      <description>I restarted this blog to go back, remind and remember the fundamentals that brought me here. Fundamentals are the compass that keeps mind and reality together. Joel Goldberg, 45 years experienced software engineering veteran wrote a great article about basics. I put here to remind and remember.
- Focus on the Fundamentals Technology constantly changes, but some fundamental approaches to software development transcend these trends. Here are six fundamentals that will continue to be relevant for a long time.</description>
     </item>
     
   </channel>
