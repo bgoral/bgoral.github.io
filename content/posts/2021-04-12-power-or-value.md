@@ -92,7 +92,6 @@ Example:
 There are many other prioritization techniques. Any of them is better than having none. Other techniques I would like to mention are;
 
 - Weighted Score Matrix Model
-- Value vs Effort
 - MoSCoW Method
 
 If not enough;
